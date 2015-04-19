@@ -133,3 +133,6 @@ sympy-plots-for-*.tex/
 
 #tar balls
 *.tar.gz
+
+#PIN
+*obj-ia32/
