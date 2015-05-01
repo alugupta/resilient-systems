@@ -126,7 +126,6 @@ VOID LoadMulti(ADDRINT addr, UINT32 size, UINT32 instId)
     const BOOL dl1Hit = dl1->Access(addr, size, CACHE_BASE::ACCESS_TYPE_LOAD);
 
     const COUNTER counter = dl1Hit ? COUNTER_HIT : COUNTER_MISS;
-    printf("I AM LOADING SINGLE\n");
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
@@ -158,7 +157,6 @@ VOID LoadSingle(ADDRINT addr, UINT32 instId)
 
     const COUNTER counter = dl1Hit ? COUNTER_HIT : COUNTER_MISS;
 
-    printf("I AM LOADING SINGLE\n");
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
@@ -183,28 +181,52 @@ VOID StoreSingle(ADDRINT addr, UINT32 instId)
 
 VOID LoadMultiFast(ADDRINT addr, UINT32 size)
 {
-    dl1->Access(addr, size, CACHE_BASE::ACCESS_TYPE_LOAD);
+    ADDRINT value;
+    const BOOL dl1Hit = dl1->Access(addr, size, CACHE_BASE::ACCESS_TYPE_LOAD);
+
+    if (dl1Hit == COUNTER_MISS) {
+        PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
+        printf("Load MultiFast Miss : %d value %d\n", addr, value);
+    }
 }
 
 /* ===================================================================== */
 
 VOID StoreMultiFast(ADDRINT addr, UINT32 size)
 {
-    dl1->Access(addr, size, CACHE_BASE::ACCESS_TYPE_STORE);
+    ADDRINT value;
+    const BOOL dl1Hit = dl1->Access(addr, size, CACHE_BASE::ACCESS_TYPE_STORE);
+
+    if (dl1Hit == COUNTER_MISS) {
+        PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
+        printf("Store MultiFast Miss : %d value %d\n", addr, value);
+    }
 }
 
 /* ===================================================================== */
 
 VOID LoadSingleFast(ADDRINT addr)
 {
-    dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_LOAD);
+    ADDRINT value;
+    const BOOL dl1Hit = dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_LOAD);
+
+    if (dl1Hit == COUNTER_MISS) {
+        PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
+        printf("Load SingleFast Miss : %d value %d\n", addr, value);
+    }
 }
 
 /* ===================================================================== */
 
 VOID StoreSingleFast(ADDRINT addr)
 {
-    dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_STORE);
+    ADDRINT value;
+    const BOOL dl1Hit = dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_STORE);
+
+    if (dl1Hit == COUNTER_MISS) {
+        PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
+        printf("Store SingleFast Miss : %d value %d\n", addr, value);
+    }
 }
 
 
