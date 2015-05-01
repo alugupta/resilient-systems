@@ -1,8 +1,8 @@
-/*BEGIN_LEGAL 
-Intel Open Source License 
+/*BEGIN_LEGAL
+Intel Open Source License
 
 Copyright (c) 2002-2015 Intel Corporation. All rights reserved.
- 
+
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
@@ -15,7 +15,7 @@ other materials provided with the distribution.  Neither the name of
 the Intel Corporation nor the names of its contributors may be used to
 endorse or promote products derived from this software without
 specific prior written permission.
- 
+
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 END_LEGAL */
 //
 // @ORIGINAL_AUTHOR: Artur Klauser
-// @EXTENDED: Rodric Rabbah (rodric@gmail.com) 
+// @EXTENDED: Rodric Rabbah (rodric@gmail.com)
 //
 
 /*! @file
@@ -121,10 +121,18 @@ COMPRESSOR_COUNTER<ADDRINT, UINT32, COUNTER_HIT_MISS> profile;
 
 VOID LoadMulti(ADDRINT addr, UINT32 size, UINT32 instId)
 {
+    ADDRINT value;
     // first level D-cache
     const BOOL dl1Hit = dl1->Access(addr, size, CACHE_BASE::ACCESS_TYPE_LOAD);
 
     const COUNTER counter = dl1Hit ? COUNTER_HIT : COUNTER_MISS;
+    printf("I AM LOADING SINGLE\n");
+
+    if (dl1Hit == COUNTER_MISS) {
+        PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
+        printf("Load Multi Miss : %d value %d\n", addr, value);
+    }
+
     profile[instId][counter]++;
 }
 
@@ -143,18 +151,27 @@ VOID StoreMulti(ADDRINT addr, UINT32 size, UINT32 instId)
 
 VOID LoadSingle(ADDRINT addr, UINT32 instId)
 {
-    // @todo we may access several cache lines for 
+    ADDRINT value;
+    // @todo we may access several cache lines for
     // first level D-cache
     const BOOL dl1Hit = dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_LOAD);
 
     const COUNTER counter = dl1Hit ? COUNTER_HIT : COUNTER_MISS;
+
+    printf("I AM LOADING SINGLE\n");
+
+    if (dl1Hit == COUNTER_MISS) {
+        PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
+        printf("Load Single Miss : %d value %d\n", addr, value);
+    }
+
     profile[instId][counter]++;
 }
 /* ===================================================================== */
 
 VOID StoreSingle(ADDRINT addr, UINT32 instId)
 {
-    // @todo we may access several cache lines for 
+    // @todo we may access several cache lines for
     // first level D-cache
     const BOOL dl1Hit = dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_STORE);
 
@@ -180,14 +197,14 @@ VOID StoreMultiFast(ADDRINT addr, UINT32 size)
 
 VOID LoadSingleFast(ADDRINT addr)
 {
-    dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_LOAD);    
+    dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_LOAD);
 }
 
 /* ===================================================================== */
 
 VOID StoreSingleFast(ADDRINT addr)
 {
-    dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_STORE);    
+    dl1->AccessSingleLine(addr, CACHE_BASE::ACCESS_TYPE_STORE);
 }
 
 
@@ -206,7 +223,7 @@ VOID Instruction(INS ins, void * v)
     {
         const UINT32 size = INS_MemoryOperandSize(ins, memOp);
         const BOOL   single = (size <= 4);
-        
+
         if (INS_MemoryOperandIsRead(ins, memOp))
         {
             if( KnobTrackLoads )
@@ -241,7 +258,7 @@ VOID Instruction(INS ins, void * v)
                         ins, IPOINT_BEFORE,  (AFUNPTR) LoadSingleFast,
                         IARG_MEMORYOP_EA, memOp,
                         IARG_END);
-                        
+
                 }
                 else
                 {
@@ -253,7 +270,7 @@ VOID Instruction(INS ins, void * v)
                 }
             }
         }
-        
+
         if (INS_MemoryOperandIsWritten(ins, memOp))
         {
             if( KnobTrackStores )
@@ -287,7 +304,7 @@ VOID Instruction(INS ins, void * v)
                         ins, IPOINT_BEFORE,  (AFUNPTR) StoreSingleFast,
                         IARG_MEMORYOP_EA, memOp,
                         IARG_END);
-                        
+
                 }
                 else
                 {
@@ -311,14 +328,14 @@ VOID Fini(int code, VOID * v)
 
     // print D-cache profile
     // @todo what does this print
-    
+
     out << "PIN:MEMLATENCIES 1.0. 0x0\n";
-            
+
     out <<
         "#\n"
         "# DCACHE stats\n"
         "#\n";
-    
+
     out << dl1->StatsLong("# ", CACHE_BASE::CACHE_TYPE_DCACHE);
 
     if( KnobTrackLoads || KnobTrackStores ) {
@@ -326,7 +343,7 @@ VOID Fini(int code, VOID * v)
             "#\n"
             "# LOAD stats\n"
             "#\n";
-        
+
         out << profile.StringLong();
     }
     out.close();
@@ -343,11 +360,11 @@ int main(int argc, char *argv[])
         return Usage();
     }
 
-    dl1 = new DL1::CACHE("L1 Data Cache", 
+    dl1 = new DL1::CACHE("L1 Data Cache",
                          KnobCacheSize.Value() * KILO,
                          KnobLineSize.Value(),
                          KnobAssociativity.Value());
-    
+
     profile.SetKeyName("iaddr          ");
     profile.SetCounterName("dcache:miss        dcache:hit");
 
@@ -355,16 +372,16 @@ int main(int argc, char *argv[])
 
     threshold[COUNTER_HIT] = KnobThresholdHit.Value();
     threshold[COUNTER_MISS] = KnobThresholdMiss.Value();
-    
+
     profile.SetThreshold( threshold );
-    
+
     INS_AddInstrumentFunction(Instruction, 0);
     PIN_AddFiniFunction(Fini, 0);
 
     // Never returns
 
     PIN_StartProgram();
-    
+
     return 0;
 }
 

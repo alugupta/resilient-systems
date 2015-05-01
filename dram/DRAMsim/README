@@ -1,0 +1,24 @@
+
+
+To Build 
+
+Type make at the command line to create the DRAMsim executable.
+
+To Run
+
+The run.pl perl script can be used to run the simulator in stand-alone mode.
+
+The required configuration files for the various DRAM types reside in the
+mem_system_def directory. For dram types where both power and performance
+simulation is supported, there are two configuration files - an spd file for
+the timing parameters and a dsh file for the power parameters.
+
+Trace file can also be used as input to the simulator.
+
+For more documentation refer to our white paper and the simulator manual.
+
+For porting the mem-interface.c is to be used as specified in the white paper.
+The mem-interface.h provides definitions of data types etc. 
+The function defintion of fill_biu_slot (decalred in mem-biu.h and defined in
+mem-biu.c) might require modification. 
+ 

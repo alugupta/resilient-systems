@@ -1,0 +1,56 @@
+# Download
+
+To use the cache tools, you first need to obtain and install Pin from
+http://rogue.colorado.edu/pin/.
+
+# Installation
+
+The following commands unpack the tarball, and compile the cache
+simulation tools. The instructions assume Pin is installed in
+/home/pin, and that you are using a C shell.
+
+    % tar zxvf cache-pintools.tgz
+    % cd cache-pintools
+    % setenv PIN_HOME /home/pin
+    % make
+
+# Use
+
+The tarball includes a file (envars.tcsh) that you may edit and source
+before make. In the file, you may also set your preferred C++
+compiler (although it must be compatible with the version of Pin you
+have installed).
+
+The cache tool is used like any other Pin tool. The following command
+line instruments a.out, extracts the instruction trace and simulates a
+32KB 8-way associative instruction cache with 128B lines:
+
+      % pin -t icache -c 32 -a 8 -b 128 -- a.out
+
+A list of the command line options for the instruction cache tool is
+available by running the tool as follows:
+
+      % pin -t icache -h -- ls
+
+Similarly for the data cache tool:
+
+      % pin -t dcache -h -- ls
+
+Both tools include an option (-z) to ignore the size of each
+reference. In addition, the data cache tool includes an option (-ns)
+to ignore all memory writes (stores).
+
+# Credit
+
+The Pin tools are made available under the same license used by
+Pin. The instruction cache tool is model led after the data cache tool
+that is distributed with Pin. At some point, I imagine the
+instruction cache tool will also be included with Pin distributions.
+
+If you use the cache tool for your research, follow the citation rules
+for Pin (see here: http://rogue.colorado.edu/pin/faq.html).
+
+# Feedback
+
+If you find bugs with these tools, or if you have general comments,
+please contact me at rabbah@mit.edu.
