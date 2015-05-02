@@ -129,7 +129,7 @@ VOID LoadMulti(ADDRINT addr, UINT32 size, UINT32 instId)
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
-        printf("Load Multi Miss : %d value %d\n", addr, value);
+        printf("Load Multi Addr : %d value : %d\n", addr, value);
     }
 
     profile[instId][counter]++;
@@ -160,7 +160,7 @@ VOID LoadSingle(ADDRINT addr, UINT32 instId)
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
-        printf("Load Single Miss : %d value %d\n", addr, value);
+        printf("Load Single Addr : %d value : %d\n", addr, value);
     }
 
     profile[instId][counter]++;
@@ -186,7 +186,7 @@ VOID LoadMultiFast(ADDRINT addr, UINT32 size)
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
-        printf("Load MultiFast Miss : %d value %d\n", addr, value);
+        printf("Load MultiFast Addr : %d value : %d\n", addr, value);
     }
 }
 
@@ -199,7 +199,7 @@ VOID StoreMultiFast(ADDRINT addr, UINT32 size)
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
-        printf("Store MultiFast Miss : %d value %d\n", addr, value);
+        printf("Store MultiFast Addr : %d value : %d\n", addr, value);
     }
 }
 
@@ -212,7 +212,7 @@ VOID LoadSingleFast(ADDRINT addr)
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
-        printf("Load SingleFast Miss : %d value %d\n", addr, value);
+        printf("Load SingleFast Addr : %d value : %d\n", addr, value);
     }
 }
 
@@ -225,7 +225,7 @@ VOID StoreSingleFast(ADDRINT addr)
 
     if (dl1Hit == COUNTER_MISS) {
         PIN_SafeCopy(&value, (void *) addr, sizeof(ADDRINT));
-        printf("Store SingleFast Miss : %d value %d\n", addr, value);
+        printf("Store SingleFast Addr : %d value : %d\n", addr, value);
     }
 }
 
