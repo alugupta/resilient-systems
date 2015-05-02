@@ -1,0 +1,96 @@
+leFast Addr : 134585314 value : -2105441400
+Load MultiFast Addr : -1248386062 value : 84148994
+Load SingleFast Addr : -1248327532 value : -194378
+Store SingleFast Addr : 134625288 value : 0
+Load SingleFast Addr : 134516760 value : 16903
+Load SingleFast Addr : 134514305 value : 989855744
+Load SingleFast Addr : 134514292 value : 195
+Load SingleFast Addr : 134515047 value : 1886549107
+Load SingleFast Addr : -1249815452 value : -2127351616
+Load SingleFast Addr : -1249813044 value : 561
+Load SingleFast Addr : -1249807820 value : -1358080788
+Load SingleFast Addr : -1249791660 value : 786458
+Load SingleFast Addr : -1249753599 value : 1886549107
+Load SingleFast Addr : -1249738414 value : 1835010
+Load SingleFast Addr : 134585536 value : 5979946
+Load SingleFast Addr : 134587224 value : -2013230975
+Load SingleFast Addr : -1248327796 value : -194628
+Store SingleFast Addr : 134625312 value : 0
+Load SingleFast Addr : -1248327760 value : -194902
+Store SingleFast Addr : 134625352 value : 0
+Load SingleFast Addr : -1248085904 value : 0
+Store SingleFast Addr : 156197524 value : 0
+Load SingleFast Addr : 134588608 value : 134569232
+Store SingleFast Addr : -1076827628 value : 1491272
+Store SingleFast Addr : -1076827656 value : 320
+Load SingleFast Addr : -1249815340 value : 1342179587
+Load SingleFast Addr : -1249785676 value : 786466
+Store SingleFast Addr : -1076827692 value : 1732720
+Load SingleFast Addr : -1249741455 value : 1852141679
+Load SingleFast Addr : -1249737666 value : 131075
+Load SingleFast Addr : -1249814912 value : 315834659
+Load SingleFast Addr : -1249812280 value : 1014
+Load SingleFast Addr : -1249806008 value : 2090198464
+Load SingleFast Addr : -1249784412 value : 786466
+Load SingleFast Addr : -1249784420 value : 916384
+Load SingleFast Addr : -1249761825 value : 846230884
+Load SingleFast Addr : -1249761824 value : 3305589
+Load SingleFast Addr : -1249737508 value : 131074
+Load SingleFast Addr : 134615916 value : 0
+Load SingleFast Addr : 134516504 value : 9479
+Load SingleFast Addr : 134513841 value : -637534208
+Load SingleFast Addr : 134515027 value : 1818322290
+Store SingleFast Addr : 156197644 value : 0
+Load SingleFast Addr : 156197607 value : 0
+Load SingleFast Addr : 156197579 value : 0
+Load SingleFast Addr : 156197551 value : 0
+Load SingleFast Addr : 134514982 value : 1802661734
+Load SingleFast Addr : -1249814924 value : 232863888
+Load SingleFast Addr : -1249813288 value : 433
+Load SingleFast Addr : -1249808332 value : 2090263926
+Load SingleFast Addr : -1249793708 value : 786466
+Load SingleFast Addr : -1249745427 value : 1802661734
+Load SingleFast Addr : -1249738670 value : 196610
+Load SingleFast Addr : -1248081620 value : 1
+Load SingleFast Addr : -1248081596 value : 0
+Load SingleFast Addr : -1248081768 value : 0
+Load SingleFast Addr : -1247921816 value : 24249
+Load SingleFast Addr : -1248073700 value : 0
+Store SingleFast Addr : -1247921380 value : 0
+Store SingleFast Addr : -1247921376 value : 0
+Load SingleFast Addr : -1248073416 value : 0
+Load SingleFast Addr : -1248085664 value : -1248085632
+Load SingleFast Addr : -1248085560 value : -1248081748
+Store SingleFast Addr : -1248081748 value : 0
+Load SingleFast Addr : -1248085580 value : -1248085472
+Load SingleFast Addr : -1248085400 value : -1248081736
+Store SingleFast Addr : -1248081728 value : 0
+Load SingleFast Addr : -1248085420 value : -1248085312
+Load SingleFast Addr : -1248085240 value : -1248081724
+Load SingleFast Addr : -1248085260 value : 0
+Store SingleFast Addr : -1248078752 value : 0
+Load SingleFast Addr : 134616096 value : 0
+Load SingleFast Addr : 134616128 value : 0
+Load SingleFast Addr : 134616160 value : 0
+Load SingleFast Addr : 134616192 value : 0
+Load SingleFast Addr : 134616224 value : 0
+Load SingleFast Addr : 134616256 value : 0
+Load SingleFast Addr : 134616288 value : 0
+Load SingleFast Addr : 134615668 value : 12
+Load SingleFast Addr : 134615620 value : 12
+Store SingleFast Addr : 134625376 value : 0
+Store SingleFast Addr : 134625408 value : 0
+Load SingleFast Addr : 134514001 value : 738197504
+Load SingleFast Addr : 134515436 value : 1667594341
+Load SingleFaBit counter algorithm benchmark
+
+Optimized 1 bit/loop counter          > Time:   0.020 sec.; Bits: 18563087
+Ratko's mystery algorithm             > Time:   0.000 sec.; Bits: 17272864
+Recursive bit count by nybbles        > Time:   0.010 sec.; Bits: 17116098
+Non-recursive bit count by nybbles    > Time:   0.010 sec.; Bits: 18244704
+Non-recursive bit count by bytes (BW) > Time:   0.000 sec.; Bits: 18730970
+Non-recursive bit count by bytes (AR) > Time:   0.010 sec.; Bits: 16962481
+Shift and count bits                  > Time:   0.020 sec.; Bits: 17759895
+
+Best  > Ratko's mystery algorithm
+Worst > Optimized 1 bit/loop counter

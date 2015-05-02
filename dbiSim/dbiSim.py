@@ -65,25 +65,103 @@ def makeMissList(misses):
         addr = getAddr(miss)
         value = getValue(miss)
         if isNumber(addr) and isNumber(value):
-            missList.append([addr, value])
+            missList.append([abs(addr), abs(value)])
 
     return missList
 
+def countOnes(num, bitwidth):
+    numOnes = 0
+    for i in num:
+        numOnes += int(i)
+
+    return numOnes
+
+def countZeros(num, bitwidth):
+    return bitwidth - countOnes(num, bitwidth)
+
+def singleDbiDc(num, bitwdith):
+    binaryNum = format(num, '0' + str(bitwdith) + 'b')
+    byteNum = [binaryNum[0:8], binaryNum[8:16], binaryNum[16:24], binaryNum[24:32]]
+    zeros = map(lambda x: countZeros(x, 8), byteNum)
+    totalZeros = 0
+    for count in zeros:
+        if (count > 4):
+            totalZeros += (8 - count)
+        else :
+            totalZeros += count
+    return totalZeros
+
+def cumulativeDbiDc(nums, bitwdith):
+    totalZeros = 0
+    totalBits = len(nums) * bitwdith
+    for num in nums:
+        totalZeros += singleDbiDc(num, bitwdith)
+
+    print totalZeros
+    return float(totalZeros) / float(totalBits)
+
+def singleDbiAc(previous, new, bitwdith):
+    difference = previous ^ new
+    binaryDifference = format(difference, '0' + str(bitwdith) + 'b')
+    ones = countOnes(binaryDifference, bitwdith)
+    if (ones > 16):
+        return bitwdith - ones
+    else:
+        return ones
+
+def dbiDc(misses, bitwdith):
+    _, values = zip(*misses)
+    return cumulativeDbiDc(values, bitwdith)
+
+
+def storeDbiAc(stores, bitwdith):
+    seenAddresses = []
+    seenValues = []
+
+    totalDbiCount = 0
+    totalBits = len(stores) * bitwdith
+    for [addr, value] in stores:
+        try:
+            index = seenAddresses.index(addr)
+            totalDbiCount += singleDbiAc(seenValues[index], value, bitwdith)
+        except ValueError:
+            totalDbiCount += singleDbiAc(0, value, bitwdith)
+
+        seenAddresses.insert(0, addr)
+        seenValues.insert(0, addr)
+
+    return float(totalDbiCount) / float(totalBits)
+
+def loadDbiAc(loads, bitwdith):
+    _, values = zip(*loads)
+    previous = 0
+    totalDbiCount = 0
+    totalBits = len(values) * bitwdith
+    print totalBits
+    for value in values:
+        totalDbiCount += singleDbiAc(previous, value, bitwdith)
+        previous = value
+
+    return float(totalDbiCount) / float(totalBits)
+
+
 def printAddrs(misses):
     for (addr, value) in misses:
-        print format(addr, '016b'), addr
+        print format(addr, '032b'), addr
 
 def main():
-    dbiSimTests.test_isNumber()
     lines = readFile("basicmathOut")
+    nums = [1, 2, 1, 2, 0]
+    print cumulativeDbiDc(nums, 32)
 
     misses = filterMisses(lines)
     stores = copyDelimmtedLines(misses, storeDelimetter)
     loads = copyDelimmtedLines(misses, loadDelimetter)
     stores = makeMissList(stores)
     loads = makeMissList(loads)
-
-    printAddrs(stores)
+    print loadDbiAc(loads, 32)
+    print dbiDc(loads, 32)
+    print storeDbiAc(stores, 32)
 
 if __name__ == '__main__':
     main()

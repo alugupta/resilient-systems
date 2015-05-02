@@ -2,7 +2,7 @@
 # Generated automatically by configure.
 # Run this file to recreate the current configuration.
 # This directory was configured as follows,
-# on host trip.eecs.umich.edu:
+# on host udit-linux:
 #
 # ./configure  --cache-file=.././config.cache --srcdir=.
 #
@@ -67,7 +67,7 @@ s%@ACLOCAL@%aclocal%g
 s%@AUTOCONF@%autoconf%g
 s%@AUTOMAKE@%automake%g
 s%@AUTOHEADER@%autoheader%g
-s%@MAKEINFO@%makeinfo%g
+s%@MAKEINFO@%/home/udit/git/resilient-systems/benchmarks/mibench/consumer/mad/mad-0.14.2b/missing makeinfo%g
 s%@SET_MAKE@%%g
 s%@host@%i686-pc-linux-gnu%g
 s%@host_alias@%i686-pc-linux-gnu%g
