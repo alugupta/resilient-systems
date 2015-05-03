@@ -148,7 +148,7 @@ def printAddrs(misses):
         print format(addr, '032b'), addr
 
 def main():
-    simNames = readFile("memory-traces/simulations")
+    simNames = readFile("simulations")
     simNames = map(lambda x: x.rstrip('\n'), simNames)
 
     for simName in simNames:
