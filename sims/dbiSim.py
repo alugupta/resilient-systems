@@ -5,6 +5,10 @@ loadDelimetter  = "Load"
 
 import dbiSimTests
 
+################################################################################
+# Checks to see if ``num'' can be converted to a valid integer.
+# @returns : true if int(num) passes without ValueError exceptions, else false.
+################################################################################
 def isNumber(num):
     try:
         int(num)
@@ -12,6 +16,11 @@ def isNumber(num):
     except ValueError:
         return False
 
+################################################################################
+# Reads all lines in a file
+# @returns : a list of strings where the N-th string corresponds to the N-th
+# line in ```filename'''
+################################################################################
 def readFile(filename):
     lines = []
     with open(filename, 'r') as f:
@@ -19,12 +28,22 @@ def readFile(filename):
 
     return lines
 
+################################################################################
+# Checks to see is ``fullString'' contains ``substring''
+# @args : fullString and substring must be strings
+# @returns: true if fullString.find(substring) != -1
+################################################################################
 def stringContains(fullString, subString):
     if fullString.find(subString) == -1:
         return False
     else:
         return True
 
+################################################################################
+# Checks to see is ``fullString'' contains ``substring''
+# @args : fullString and substring must be strings
+# @returns: true if fullString.find(substring) != -1
+################################################################################
 def filterMisses(lines):
     filteredLines = []
     for line in lines:
@@ -35,6 +54,13 @@ def filterMisses(lines):
 
     return filteredLines
 
+################################################################################
+# Copies ``lines'' containing the ``delimmeter'' into a new list.
+# @args: lines is a list of strings
+# @args: delimmeter is a string
+# @returns : a list containing all ``lines'' containing ``delimmeter''. The
+# order is preserved.
+################################################################################
 def copyDelimmtedLines(lines, delimmeter):
     filteredLines = []
     for line in lines:
@@ -43,6 +69,15 @@ def copyDelimmtedLines(lines, delimmeter):
 
     return filteredLines
 
+################################################################################
+# Returns the address corresponding to the ``miss'' provided. This assumes that
+# the ``miss'' is encoding as :
+#           ----some-text----_'Addr'_*_'addr-value'_-----some-text
+# where the _ are actual spaces, and * is any string without spaces and
+# 'addr-value' is the desired address value
+# @returns : the int corresponding to the address if ``miss'' is a valid miss
+# and the string "None" otherwise
+################################################################################
 def getAddr(miss):
     missSplit = miss.split(' ')
     try :
@@ -51,6 +86,15 @@ def getAddr(miss):
     except ValueError:
         return "None"
 
+################################################################################
+# Returns the data value corresponding to the ``miss'' provided. This assumes
+# that the ``miss'' is encoding as :
+#           ----some-text----_'value'_*_'data-value'_-----some-text
+# where the _ are actual spaces, and * is any string without spaces and
+# 'data-value' is the desired value
+# @returns : the int corresponding to the data-value if ``miss'' is a valid miss
+# and the string "None" otherwise
+################################################################################
 def getValue(miss):
     missSplit = miss.split(' ')
     try :
@@ -59,6 +103,19 @@ def getValue(miss):
     except ValueError:
         return "None"
 
+################################################################################
+# Returns a sequence of misses addresses and data-values given the list of
+# encoded ```misses'''
+# that the ``miss'' is encoding as :
+#
+#----some-text----__'Addr'_*_ 'addr-value'_*_'value'_*_'data-value'_---some-text
+#
+# where the _ are actual spaces, and * is any string without spaces and
+# 'data-value' is the desired value and 'addr-value' is the desired address.
+#
+# @returns : a list containing lists of : [address, value] pairs. Order from
+# the encoded ``misses'' is preserved
+################################################################################
 def makeMissList(misses):
     missList = []
     for miss in misses:
@@ -69,16 +126,29 @@ def makeMissList(misses):
 
     return missList
 
-def countOnes(num, bitwidth):
+################################################################################
+# Population count on ``num''.
+# @args: num a binary string
+# @returns: the number of 1's in the binary string, ``num''.
+################################################################################
+def countOnes(num):
     numOnes = 0
     for i in num:
         numOnes += int(i)
 
     return numOnes
 
+################################################################################
+# Counts the number of zeros in ``num''.
+# @args: num a binary string
+# @returns: bitwdith - countOnes(num)
+################################################################################
 def countZeros(num, bitwidth):
-    return bitwidth - countOnes(num, bitwidth)
+    return bitwidth - countOnes(num)
 
+################################################################################
+# Simulates the zero sensitive DBI-DC algorithm for a single binary string,
+################################################################################
 def singleDbiDc(num, bitwdith):
     binaryNum = format(num, '0' + str(bitwdith) + 'b')
     byteNum = [binaryNum[0:8], binaryNum[8:16], binaryNum[16:24], binaryNum[24:32]]
@@ -102,7 +172,7 @@ def cumulativeDbiDc(nums, bitwdith):
 def singleDbiAc(previous, new, bitwdith):
     difference = previous ^ new
     binaryDifference = format(difference, '0' + str(bitwdith) + 'b')
-    ones = countOnes(binaryDifference, bitwdith)
+    ones = countOnes(binaryDifference)
     if (ones > 16):
         return bitwdith - ones
     else:
@@ -141,11 +211,6 @@ def loadDbiAc(loads, bitwdith):
         previous = value
 
     return float(totalDbiCount) / float(totalBits)
-
-
-def printAddrs(misses):
-    for (addr, value) in misses:
-        print format(addr, '032b'), addr
 
 def main():
     simNames = readFile("simulations")
