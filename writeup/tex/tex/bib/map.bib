@@ -1,0 +1,529 @@
+%====================================
+% Integrated HLS and mapping
+%====================================
+@string{JAN = {Jan}}
+@string{FEB = {Feb}}
+@string{MAR = {Mar}}
+@string{APR = {Apr}}
+@string{MAY = {May}}
+@string{JUN = {Jun}}
+@string{JUL = {Jul}}
+@string{AUG = {Aug}}
+@string{SEP = {Sep}}
+@string{OCT = {Oct}}
+@string{NOV = {Nov}}
+@string{DEC = {Dec}}
+
+@string{JAN/FEB = {Jan/Feb}}
+@string{FEB/MAR = {Feb/Mar}}
+@string{MAR/APR = {Mar/Apr}}
+@string{APR/MAY = {Apr/May}}
+@string{MAY/JUN = {May/Jun}}
+@string{JUN/JUL = {Jun/Jul}}
+@string{JUL/AUG = {Jul/Aug}}
+@string{AUG/SEP = {Aug/Sep}}
+@string{SEP/OCT = {Sep/Oct}}
+@string{OCT/NOV = {Oct/Nov}}
+@string{NOV/DEC = {Nov/Dec}}
+@string{DEC/JAN = {Dec/Jan}}
+
+% Architecture
+
+@string{CAL      = {Computer Architecture Letters (CAL)}}
+@string{IEEEMICRO = {IEEE Micro}}
+@string{COMPUTER = {IEEE Computer}}
+@string{IJRD     = {IBM Journal of Research and Development}}
+@string{JETC     = {ACM Journal on Emerging Technologies in Computing
+                     Systems (JETC)}}
+@string{JPDC     = {Journal of Parallel and Distributed Computing}}
+
+@string{ISCA     = {Int'l Symp. on Computer Architecture (ISCA)}}
+@string{MICRO    = {Int'l Symp. on Microarchitecture (MICRO)}}
+@string{HPCA     = {Int'l Symp. on High-Performance Computer
+                     Architecture (HPCA)}}
+@string{ASPLOS   = {Int'l Conf. on Architectural Support for Programming
+                     Languages and Operating Systems (ASPLOS)}}
+@string{SC       = {Int'l Conf. on High Performance Networking
+                     and Computing (Supercomputing)}}
+@string{ICS      = {Int'l Symp. on Supercomputing (ICS)}}
+@string{PACT     = {Int'l Conf. on Parallel Architectures and
+                     Compilation Techniques (PACT)}}
+@string{HOTI     = {Symp. on High-Performance Interconnects
+                     (Hot Interconnects)}}
+@string{NOCS     = {Int'l Symp. on Networks-on-Chip (NOCS)}}
+@string{ANCS     = {Symp. on Architectures for Networking
+                     and Communications Systems (ANCS)}}
+@string{ICPP     = {Int'l Conf. on Parallel Processing (ICPP)}}
+@string{IPDPS    = {Int'l Parallel and Distributed Processing
+                     Symp. (IPDPS)}}
+@string{ISPASS   = {Int'l Symp. on Performance Analysis of Systems and
+                     Software (ISPASS)}}
+@string{SPAA     = {Symp. on Parallel Algorithms and Architectures
+                     (SPAA)}}
+@string{HIPC     = {Int'l Conf. on High-Performance Computing (HIPC)}}
+@string{IISWC    = {Int'l Symp. on Workload Characterization (IISWC)}}
+
+@string{HPEC     = {Workshop on High-Performance Embedded Computing}}
+
+@string{HPCS     = {Int'l Conf. on High Performance Computing and Simulation (HPCS)}}
+
+% VLSI
+@string{TVLSI    = {IEEE Trans. on Very Large-Scale Integration
+                     Systems (TVLSI)}}
+
+% Embedded
+@string{TECS     = {ACM Transactions in Embedded Computing Systems (TECS)}}
+
+% Others
+@string{TC       = {IEEE Trans. on Computers (TC)}}
+
+% Compilers
+@string{TACO     = {ACM Trans. on Architecture and Code
+                     Optimization (TACO)}}
+
+@string{CGO      = {Int'l Symp. on Code Generation and Optimization
+                     (CGO)}}
+
+@string{PLDI      = {ACM SIGPLAN Conf. on Programming Language Design and Implementation (PLDI)}}
+
+@string{PPoPP     = {ACM SIGPLAN Conf. on Principles and Practice of Parallel Programming (PPoPP)}}
+
+@string{CASES     = {Intl'l Conf. on Compilers, Architectures and Synthesis of
+                     Embedded Systems (CASES)}}
+@string{OOPSLA    = {Intl'l Conf. on Object-Oriented Programming, Systems,
+		      Languages, and Applications}}
+
+% CAD
+@string{TCAD     = {IEEE Trans. on Computer-Aided Design of 
+                    Integrated Circuits and Systems (TCAD)}}
+@string{DT       = {IEEE Design and Test of Computers}}
+@string{TODAES   = {ACM Trans. on Design Automation
+                     of Electronic Systems (TODAES)}}
+
+
+@string{ASPDAC   = {Asia and South Pacific Design Automation Conf. (ASP-DAC)}}
+@string{CODESISSS = {Intl'l Conf. on Hardware/Software Codesign and System
+                     Synthesis (CODES+ISSS)}}
+@string{DAC      = {Design Automation Conf. (DAC)}}
+@string{DATE     = {Design, Automation, and Test in Europe (DATE)}}
+@string{ESLSYN   = {Electronic System Level Synthesis Conf. (ESLsyn)}}
+@string{ICCAD    = {Int'l Conf. on Computer-Aided Design (ICCAD)}}
+@string{ICCD     = {Int'l Conf. on Computer Design (ICCD)}}
+@string{ISLPED   = {Int'l Symp. on Low Power Electronics and Design (ISLPED)}}
+@string{ISPD     = {Int'l Symp. on Physical design (ISPD)}}
+
+% FPGA
+@string{FCCM     = {IEEE Symp. on Field Programmable Custom Computing Machines (FCCM)}}
+@string{FPGA     = {Int'l Symp. on Field-Programmable Gate Arrays (FPGA)}}
+@string{FPL      = {Int'l Conf. on Field Programmable Logic and Applications (FPL)}}
+@string{FPT      = {Int'l Conf. on Field Programmable Technology (FPT)}}
+
+% Other
+@string{ISCAS    = {Int'l Symp. on Circuits and Systems (ISCAS)}}
+@string{ASAP     = {Int'l Conf. on Application-Specific Systems, Architectures and Processors (ASAP)}}
+
+@string{SASP     = {Symp. on Application Specific Processors (SASP)}}
+@string{SOCC     = {IEEE Int'l SOC Conf. (SOCC)}}
+@string{ISPADS   = {Int'l Conf. on Parallel and Distributed Systems (ICPADS)}}
+
+@article{zheng2014fast,
+  title="{Fast and Effective Placement and Routing Directed High-Level Synthesis for FPGAs}",
+  author={Zheng, Hongbin and Gurumani, Swathi T and Rupnow, Kyle and Chen, Deming},
+  journal=FPGA,
+  pages={1--10},
+  year={2014},
+  organization={ACM}
+}
+
+@article{cong2012towards,
+  title="{Towards Layout-Friendly High-Level Synthesis}",
+  author={Cong, Jason and Liu, Bin and Luo, Guojie and Prabhakar, Raghu},
+  journal=ISPD,
+  pages={165--172},
+  year={2012},
+  organization={ACM}
+}
+
+@article{hussien2013mpmap,
+  title="{MPMAP: A High Level Synthesis and Mapping Tool for MPSoCs}",
+  author={Hussien, Amr and Eltawil, Ahmed M and Amin, Rahul and Martin, Jim},
+  journal={Signals, Systems and Computers, 2013 Asilomar Conference on},
+  pages={1785--1791},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{seo2003memory,
+  title="{Memory Allocation and Mapping in High-Level Synthesis-an Integrated Approach}",
+  author={Seo, Jaewon and Kim, Taewhan and Panda, Preeti Ranjan},
+  journal=TVLSI,
+  volume={11},
+  number={5},
+  pages={928--938},
+  year={2003},
+  publisher={IEEE}
+}
+
+@article{zhou2003ilp,
+  title="{ILP Method for Memory Mapping in High-Level Synthesis}",
+  author={Zhou, Haifeng and Lin, Zhenghui and Cao, Wei},
+  journal={Microelectronics Reliability},
+  volume={43},
+  number={7},
+  pages={1163--1167},
+  year={2003},
+  publisher={Elsevier}
+}
+
+@article{corre2006memory,
+  title="{Memory Aware High-Level Synthesis for Embedded Systems}",
+  author={Corre, Gwenole and Senn, Eric and Julien, Nathalie and Martin, Eric},
+  journal={arXiv preprint cs/0605145},
+  year={2006}
+}
+
+%======================================
+% Mapping techniques in logic synthesis
+%======================================
+
+@article{marquardt1999using,
+  title="{Using Cluster-Based Logic Blocks and Timing-Driven Packing to Improve FPGA Speed and Density}",
+  author={Marquardt, Alexander Sandy and Betz, Vaughn and Rose, Jonathan},
+  booktitle={Proceedings of the 1999 ACM/SIGDA seventh international symposium on Field programmable gate arrays},
+  pages={37--46},
+  year={1999},
+  organization={ACM}
+}
+
+@article{cong1999cut,
+  title="{Cut Ranking and Pruning: Enabling a General and Efficient FPGA Mapping Solution}",
+  author={Cong, Jason and Wu, Chang and Ding, Yuzheng},
+  booktitle={Proceedings of the 1999 ACM/SIGDA seventh international symposium on Field programmable gate arrays},
+  pages={29--35},
+  year={1999},
+  organization={ACM}
+}
+
+@article{chen2006fpga,
+  title="{FPGA Design Automation: A Survey}",
+  author={Chen, Deming and Cong, Jason and Pan, Peichen},
+  journal={Foundations and Trends in Electronic Design Automation},
+  volume={1},
+  number={3},
+  pages={139--169},
+  year={2006},
+  publisher={Now Publishers Inc.}
+}
+
+
+@article{chen2004daomap,
+  title="{DAOmap: A Depth-Optimal Area Optimization Mapping Algorithm for FPGA Designs}",
+  author={Chen, Deming and Cong, Jason},
+  journal=ICCAD,
+  pages={752--759},
+  year={2004},
+  organization={IEEE Computer Society}
+}
+
+@article{cong1995simultaneous,
+  title="{Simultaneous Depth and Area Minimization in LUT-based FPGA Mapping}",
+  author={Cong, Jason and Hwang, Yean-Yow},
+  booktitle={Proceedings of the 1995 ACM third international symposium on Field-programmable gate arrays},
+  pages={68--74},
+  year={1995},
+  organization={ACM}
+}
+
+@article{cong1994flowmap,
+  title="{FlowMap: An Optimal Technology Mapping Algorithm for Delay Optimization in Lookup-Table Based FPGA Designs}",
+  author={Cong, Jason and Ding, Yuzheng},
+  journal=TCAD,
+  volume={13},
+  number={1},
+  pages={1--12},
+  year={1994},
+  publisher={IEEE}
+}
+
+@article{anderson2002power,
+  title="{Power-Aware Technology Mapping for LUT-based FPGAs}",
+  author={Anderson, Jason Helge and Najm, Farid N},
+  journal=FPT,
+  pages={211--218},
+  year={2002},
+  organization={IEEE}
+}
+
+@article{cong2010lut,
+  title="{LUT-based FPGA Technology Mapping for Reliability}",
+  author={Cong, Jason and Minkovich, Kirill},
+  journal=DAC,
+  pages={517--522},
+  year={2010},
+  organization={ACM}
+}
+
+@article{mishchenko2007improvements,
+  title="{Improvements to Technology Mapping for LUT-based FPGAs}",
+  author={Mishchenko, Alan and Chatterjee, Satrajit and Brayton, Robert K},
+  journal=TCAD,
+  volume={26},
+  number={2},
+  pages={240--253},
+  year={2007},
+  publisher={IEEE}
+}
+
+@article{beyrouthy2013asynchronous,
+  title="{An Asynchronous FPGA Block with its Tech-Mapping Algorithm Dedicated to Security Applications}",
+  author={Beyrouthy, Taha and Fesquet, Laurent},
+  journal={International Journal of Reconfigurable Computing},
+  volume={2013},
+  year={2013},
+  publisher={Hindawi Publishing Corporation}
+}
+
+%=======================================
+% Integrated logic synthesis
+%=======================================
+
+@article{pan1998optimal,
+  title="{Optimal Clock Period Clustering for Sequential Circuits with Retiming}",
+  author={Pan, Peichen and Karandikar, Arvind K and Liu, CL},
+  journal=TCAD,
+  volume={17},
+  number={6},
+  pages={489--498},
+  year={1998},
+  publisher={IEEE}
+}
+
+@article{pan1998new,
+  title="{A New Retiming-Based Technology Mapping Algorithm for LUT-based FPGAs}",
+  author={Pan, Peichen and Lin, Chih-Chang},
+  booktitle={Proceedings of the 1998 ACM/SIGDA sixth international symposium on Field programmable gate arrays},
+  pages={35--42},
+  year={1998},
+  organization={ACM}
+}
+
+@article{mishchenko2006integrating,
+  title="{Integrating Logic Synthesis, Technology Mapping, and Retiming}",
+  author={Mishchenko, Alan and Chatterjee, Satrajit and Brayton, Robert},
+  journal={Proc. IWLS'05},
+  year={2006},
+  organization={Citeseer}
+}
+
+@article{chen2001simultaneous,
+  title="{Simultaneous Logic Decomposition with Technology Mapping in FPGA Designs}",
+  author={Chen, Gang and Cong, Jason},
+  journal=FPGA,
+  pages={48--55},
+  year={2001},
+  organization={ACM}
+}
+
+@article{lin2006optimal,
+  title="{Optimal Simultaneous Mapping and Clustering for FPGA Delay Optimization}",
+  author={Lin, Joey Y and Chen, Deming and Cong, Jason},
+  journal=DAC,
+  pages={472--477},
+  year={2006},
+  organization={ACM}
+}
+
+@article{leiserson1991retiming,
+  title="{Retiming Synchronous Circuitry}",
+  author={Leiserson, Charles E and Saxe, James B},
+  journal={Algorithmica},
+  volume={6},
+  number={1-6},
+  pages={5--35},
+  year={1991},
+  publisher={Springer}
+}
+
+%====================================
+% Integrated high level synthesis
+%====================================
+
+@article{huang2004forward,
+  title="{Forward-Looking Macro Generation and Relational Placement During High Level Synthesis to Fpgas}",
+  author={Huang, Renqiu and Vemuri, Ranga},
+  journal=IPDPS,
+  pages={139},
+  year={2004},
+  organization={IEEE}
+}
+
+@article{prabhakaran1998simultaneous,
+  title="{Simultaneous Scheduling, Binding and Floorplanning in High-Level Synthesis}",
+  author={Prabhakaran, Pradeep and Banerjee, Prithviraj},
+  journal={VLSI Design, 1998. Proceedings., 1998 Eleventh International Conference on},
+  pages={428--434},
+  year={1998},
+  organization={IEEE}
+}
+
+@article{xu1997layout,
+  title="{Layout-driven RTL Binding Techniques For High-Level Synthesis Using Accurate Estimators},
+  author={Xu, Min and Kurdahi, Fadi J}",
+  journal=TODAES,
+  volume={2},
+  number={4},
+  pages={312--343},
+  year={1997},
+  publisher={ACM}
+}
+
+@article{lucas2009fastyield,
+  title="{FastYield: Variation-Aware, Layout-Driven Simultaneous Binding and Module Selection for Performance Yield Optimization}",
+  author={Lucas, Gregory and Cromar, Scott and Chen, Deming},
+  journal=ASP-DAC,
+  pages={61--66},
+  year={2009},
+  organization={IEEE Press}
+}
+
+@article{fang1994simultaneous,
+  title="{Simultaneous Functional-Unit Binding and Floorplanning}",
+  author={Fang, Yung-Ming and Wong, DF},
+  journal=ICCAD,
+  pages={317--321},
+  year={1994},
+  organization={IEEE Computer Society Press}
+}
+
+@article{weng19913d,
+  title="{3D Scheduling: High-Level Synthesis with Floorplanning}",
+  author={Weng, Jen-Pin and Parker, Alice C},
+  journal=DAC,
+  pages={668--673},
+  year={1991},
+  organization={ACM}
+}
+
+@article{wang2013memory,
+  title="{Memory Partitioning for Multidimensional Arrays in High-Level Synthesis}",
+  author={Wang, Yuxin and Li, Peng and Zhang, Peng and Zhang, Chen and Cong, Jason},
+  journal=DAC,
+  pages={12},
+  year={2013},
+  organization={ACM}
+}
+
+@article{cong2004architecture,
+  title="{Architecture and Synthesis for On-Chip Multicycle Communication}",
+  author={Cong, Jason and Fan, Yiping and Han, Guoling and Yang, Xun and Zhang, Zhiru},
+  journal=TCAD,
+  volume={23},
+  number={4},
+  pages={550--564},
+  year={2004},
+  publisher={IEEE}
+}
+
+@article{hsu1993pipeline,
+  title="{Pipeline Scheduling Techniques in High-Level Synthesis}",
+  author={Hsu, Yu-Chin and Jeang, Yuan-Long},
+  journal={ASIC Conference and Exhibit, 1993. Proceedings., Sixth Annual IEEE International},
+  pages={396--403},
+  year={1993},
+  organization={IEEE}
+}
+
+%=============================
+% Security and Reliability HLS
+%=============================
+
+@article{tosun2005reliability,
+  title="{Reliability-Centric High-Level Synthesis}",
+  author={Tosun, Suleyman and Mansouri, Nazanin and Arvas, Ercument and Kandemir, Mahmut and Xie, Yuan},
+  journal=DATE,
+  pages={1258--1263},
+  year={2005},
+  organization={IEEE}
+}
+
+@article{cui2014high,
+  title="{High-Level Synthesis for Run-Time Hardware Trojan Detection and Recovery}",
+  author={Cui, Xiaotong and Ma, Kun and Shi, Liang and Wu, Kaijie},
+  journal=DAC,
+  pages={1--6},
+  year={2014},
+  organization={ACM}
+}
+
+@article{guthaus2001mibench,
+  title="{MiBench: A Free, Commercially Representative Embedded Benchmark Suite}",
+  author={Guthaus, Matthew R and Ringenberg, Jeffrey S and Ernst, Dan and
+Austin, Todd M and Mudge, Trevor and Brown, Richard B},
+  journal=IISWC,
+  pages={3--14},
+  year={2001},
+  organization={IEEE}
+}
+
+@article{hara2008chstone,
+  title="{CHStone: A Benchmark Program Suite for Practical C-Based High-Level
+Synthesis}",
+  author={Hara, Yuko and Tomiyama, Hiroyuki and Honda, Shinya and Takada,
+Hiroaki and Ishii, Katsuya},
+  journal=ISCAS,
+  pages={1192--1195},
+  year={2008},
+  organization={IEEE}
+}
+
+% ==================
+% Others
+% ==================
+
+@article{rivest1992md5,
+  title="{The MD5 Message-Digest Algorithm}",
+  author={Rivest, Ronald},
+  year={1992}
+}
+
+@article{agarwal2010comparative,
+  title="{A Comparative Evaluation of High-Level Hardware Synthesis Using Reed--Solomon Decoder}",
+  author={Agarwal, Abhinav and Ng, Man Cheuk and Arvind},
+  journal={IEEE Embedded Systems Letters},
+  volume={2},
+  number={3},
+  pages={72--76},
+  year={2010},
+  publisher={IEEE}
+}
+
+@article{matsumoto1998mersenne,
+  title={Mersenne Twister: A 623-Dimensionally Equidistributed Uniform Pseudo-Random Number Generator},
+  author={Matsumoto, Makoto and Nishimura, Takuji},
+  journal={ACM Transactions on Modeling and Computer Simulation (TOMACS)},
+  volume={8},
+  number={1},
+  pages={3--30},
+  year={1998},
+  publisher={ACM}
+}
+
+@article{andraka1998cordic,
+  title="{A Survey of Cordic Algorithms for FPGA Based Computer}",
+  author={Andraka, Ray},
+  journal=FPGA,
+  pages={191-200},
+  year={1998},
+  publisher={ACM}
+}
+
+@article{lee1991handwritten,
+  title="{Handwritten Digit Recognition Using K Nearest-Neighbor, Radial-Basis Function, and Backpropagation Neural Networks}",
+  author={Lee, Yuchun},
+  journal={Neural computation},
+  volume={3},
+  number={3},
+  pages={440--449},
+  year={1991},
+  publisher={MIT Press}
+}

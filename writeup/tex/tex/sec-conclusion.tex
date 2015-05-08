@@ -1,0 +1,14 @@
+\section{Future Directions}
+\label{sec-conclusions}
+
+There needs to be more work in low-cost authenticated encryption techniques,
+specifically targetting mobile and embedded devices. One avenue is exploring
+different encryption modes such as the \TT{Galois Counter Mode} which provides
+both authentication and encryption primitives. It follows a similar technique
+to the AES-counter mode of operation \cite{nistGCM}. Highly parallel and
+efficient. Provides a tag for authentication. There must be more efficient ways
+of storing the tag - coudl be large overhead (maybe do the encryption on larger
+blocks to amortize the space overhead).
+
+Also many of the work is being done for single core monolitic processors not
+multi-core or heterogeneous system on chip applications.

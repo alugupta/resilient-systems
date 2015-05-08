@@ -1,0 +1,28 @@
+\section{Future Directions}
+\label{sec-conclusions}
+
+This survey aims to summarize the current work in efficient low-cost memory
+protection - integrity verification and decryption/encryption. This survey is a
+brief overview of the field and thus does not cover all techniques and
+approaches to memory protection. In stead, this survey uses representative
+studies to broadly illuminate the domain. From the studies it seems as though
+more thorough work has been conducted in memory encryption - namely the DUECE
+approach. Integrity verification still needs more system level development -
+optimizing for power, performance, and area overhead of homogeneous uni-core
+and multicore processors and well as heterogeneous systems. It is clear that
+simple uni-core processor protection schemes do not directly apply to multicore
+systems. Much of the current research also does not optimize a unified
+encryption and integrity verification systems. Studies usually focus on one of
+these memory protection domains which raises the question if there is a less
+explored design space for unified memory protection mechanisms. Also, though
+some studies consider the performance and memory durability, this is also less
+explored than performance benchmarks for various encryption and integrity
+verification schemes.
+
+Some avenues of future work include exploring heterogeneous architecture memory
+protection mechanisms, memory protection mechanisms with power and area as
+first-order constraints - focusing on the domain of embedded or \TT{Internet of
+Things} domains, or heterogeneous architectures. There may also be merit in
+exploring more GCM based encryption and integrity verification schemes as the
+cryptographic authenticated encryption algorithm provides efficient derivatives
+of both security features.

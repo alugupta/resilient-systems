@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+
+\bibitem{fnw}
+S.~Cho and H.~Lee.
+\newblock {Filp-n-write: A simple deterministic technique to improve pram write
+  performance, energy and endurance}.
+\newblock {\em Int'l Symp. on Microarchitecture (MICRO)}, 2009.
+
+\bibitem{nistGCM}
+M.~Dworkin.
+\newblock {Recommendation for Block Cipher Modes of Operation: Galois/Counter
+  Mode (GCM) and GMAC}.
+\newblock {\em NIST Special Publication}, 2007.
+
+\bibitem{surveyInt}
+R.~Elbaz, D.~Champagne, C.~Gebotys, B.~R. Lee, N.~Potlapally, and L.~Torres.
+\newblock {Hardware Mechanisms for Memory Authentication: A Survey of Existing
+  Techniques and Engines}.
+\newblock {\em Transactions on Computational Science IV, Lecture Notes in
+  Computer Science (LNCS)}, 2009.
+
+\bibitem{patTree}
+E.~W. Hall and S.~C. Jutla.
+\newblock {Parallelizable Authentication Tree}.
+\newblock {\em Springer-Verlag Berlin Heidelberg}, 2006.
+
+\bibitem{merkle}
+R.~Merkle.
+\newblock {Secrecy, authentication and public key systems}.
+\newblock {\em PhD thesis, Department of Electrical Engineering Stanford},
+  1979.
+
+\bibitem{multicoreEnc}
+W.~Shi, S.~H.-H. Lee, M.~Ghosh, and C.~Lu.
+\newblock {Architectural Support for High Speed Protection of Memory Integrity
+  and Confidentiality in Multiprocessor Systems}.
+\newblock {\em Int'l Conf. on Parallel Architectures and Compilation Techniques
+  (PACT)}, 2004.
+
+\bibitem{suh-memIntEnc}
+E.~G. Suh, D.~Clarke, B.~Gassend, v.~M. Dijk, and S.~Devadas.
+\newblock {Efficient Memory Integrity Verification and Encryption for Secure
+  Processors}.
+\newblock {\em Int'l Symp. on Microarchitecture (MICRO)}, 2003.
+
+\bibitem{aegis}
+G.~E. Suh, W.~C. O'Donnell, and S.~Devadas.
+\newblock {AEGIS: A single-chip secure processor}.
+\newblock {\em Information Security Technical Report}, 2005.
+
+\bibitem{avalance}
+A.~Webster and T.~S.
+\newblock {On the design of s-boxes}.
+\newblock {\em Advances in Cyptology CRYPTO}, 1986.
+
+\bibitem{gcmMem}
+C.~Yan, B.~Rogers, D.~Englender, Y.~Solihin, and M.~Prvulovic.
+\newblock {Improving Cost, Performance, and Security of Memory Encryption and
+  Authentication}.
+\newblock {\em Int'l Symp. on Computer Architecture (ISCA)}, 2006.
+
+\bibitem{duece}
+V.~Young, J.~P. Nair, and K.~M. Qureshi.
+\newblock {DEUCE: Write-Efficient Encryption for Non-Volatile Memories}.
+\newblock {\em Int'l Conf. on Architectural Support for Programming Languages
+  and Operating Systems (ASPLOS)}, 2015.
+
+\bibitem{dcr}
+P.~Zhou, B.~Zhao, J.~Yang, and Y.~Zhang.
+\newblock {A durable and energy efficient main memory using phase change memory
+  technology}.
+\newblock {\em Int'l Symp. on Computer Architecture (ISCA)}, 2009.
+
+\end{thebibliography}

@@ -1,0 +1,69 @@
+%===============================================================
+% ICCAD 2014 submission
+%
+% ===============================================================
+
+\documentclass[10pt,nocopyrightspace]{sigplanconf}
+
+\usepackage{multirow}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{empheq}
+\usepackage{algorithm}
+\usepackage[vlined,linesnumbered,ruled,algo2e]{algorithm2e}
+\usepackage{color}
+%\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[normalem]{ulem}
+%\usepackage{subfig}
+\usepackage{verbatim}
+%\usepackage{listings}
+\usepackage[caption=false,labelformat=simple]{subfig}
+\usepackage{flushend}
+\usepackage{paralist}
+\usepackage{array}
+\usepackage{enumitem}
+
+\usepackage[compact]{titlesec}
+\setlength\extrarowheight{1pt} % or whatever amount is appropriate
+
+\newcommand{\fixme}[1]{\textcolor{red}{\small [~#1~]}}
+\newcommand{\TT}[1]{\texttt{#1}}
+\newcommand{\BF}[1]{\textbf{#1}}
+\newcommand{\IT}[1]{\textit{#1}}
+\newcommand{\RM}[1]{\textrm{#1}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\interval}{T}
+\newcommand{\latency}{L}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\title{ECE 5770 : Resilient Computer Systems \\
+Surveying Efficient Low-Cost Memory Protection Techniques}
+
+\authorinfo{Udit Gupta}
+{School of Electrical and Computer Engineering, Cornell University, Ithaca, NY}
+{ug28@cornell.edu}
+
+\maketitle
+
+\input{sec-introduction}
+\input{sec-related}
+\input{sec-discussion}
+\input{sec-conclusion}
+
+% references section
+%\newpage
+
+\bibliographystyle{abbrv}
+\bibliography{bib/hls,bib/compile,bib/security}
+
+\end{document}
+
+
