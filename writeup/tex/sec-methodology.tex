@@ -1,0 +1,31 @@
+\section{Methodology}
+\label{sec-methodology}
+
+\fixme{Add general picture of proc -> aes -> memory}
+Describe the general computer architecture design that we are considering for
+memory encryption. Generally use AES-CTR mode encryption
+
+\subsection{Model}
+
+\begin{enumerate}
+  \item Talk about DBI - AC and DC \fixme{Add picture of DBI DC impact}
+  \item Introduce equation
+    $$ P_t = A \times P_{dc} + B \times P_{ac}$$
+  \item Talk about encrypted data : A = 0.5, B = 0.5 : Assumption that Data is
+    Completely random once encrypted
+  \item Say that DBI aims to reduce A, B by using program structure
+\end{enumerate}
+
+\subsection{Experimental Setup}
+\begin{enumerate}
+  \item PIN - dynamic binary instrumentaiton tool : describe cache settings
+  \item Computer architecture analysis tool
+  \item MiBench - Justify why MiBench (mobile) ---- SPEC is not as good
+  \item DRAMSim - Did not work for us.
+  \item Python Script to analyze the loads and stores from the trace outptted
+    from PIN
+\end{enumerate}
+
+%Describe your approach and design
+%Instead of simply explaining what you ended up doing, show why you made such
+%design decisions / how what the trade-offs are.

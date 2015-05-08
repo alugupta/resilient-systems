@@ -1,78 +1,29 @@
-\section{Problem Statement and Motivation}
+\section{Introduction}
 \label{sec-introduction}
 
-Recently, there has been an increasing effort in developing trusted computing
-platforms augmented with specialized hardware modules that provide security
-features such as authentication and decryption/encryption. One such security
-feature that remains a focus in trusted computing research is protecting
-off-chip memory. Protecting off-chip memory includes integrity verification and
-maintaining confidentiality of private data. Challenges in designing memory
-protection mechanisms include providing memory authentication and encryption
-primitives at a low cost without compromising security. Current work also
-focuses on memory protection schemes for general purpose and high performance
-computing systems. The domain of memory protection in the mobile and embedded
-computing domains is relatively less studied and poses interesting challenges.
-Mobile and embedded devices often operate under strict power and area
-constraints. Providing secure memory protection while following the prescribed
-power and area constraints as well as maintaining performance of the computing
-devices is an ongoing challenge.
-
-As mobile and embedded computing chips incorporate an increasing number of
-transistors, they inevitably become more heterogeneous - encompassing
-multi-core processors, graphics processing units (GPUs) and hardware
-accelerators. Providing memory authentication and encryption for such
-heterogeneous, shared memory systems is another challenge as current work
-mainly focuses on the uni-processor architectures.
-
-This survey aims to explore state-of-the-art architectures and techniques
-developed by research in the area of efficient memory integrity verification
-and encryption. We limit this survey to mainly exploring hardware based memory
-protection schemes as past research as shown that implementing the encryption
-and integrity verification schemes solely in software incurs large processing
-overhead. This survey does however, discuss some memory protection schemes that
-couple secure OS-kernel features and hardware modules for providing additional
-memory protection.
-
-\subsection{Threat Model}
-This survey assumes the following threat model, unless stated otherwise, in the
-following discussions:
-
-\begin{enumerate}[noitemsep, topsep=0pt]
-  \item Attackers are capable of constructing \TT{spoofing} devices or
-    hardware. Generally a \TT{spoofing} attack replaces an existing memory
-    block or hardware unit with a fake one installed by the attacker.
-  \item Attackers are capable of \TT{splicing} or \TT{relocation} attacks.
-    \TT{Splicing/relocation} attacks involve replacing a memory block at
-    address \TT{A} with a memory block at a different address \TT{B}. This can
-    also be achieved by changing the memory address being accessed.
-  \item Attackers are capable of \TT{snooping} any interconnection fabrics and
-    buses connecting the processors and off-chip memory. This involves both
-    software and hardware based snooping attacks.
-  \item Attackers are capable of \TT{replay} attacks. Replay attacks also
-    include intelligent replay attacks where attacks are made after monitoring
-    the communication between the processor and off-chip memory. We assume that
-    any communication patterns/protocols may be exploited in this threat model.
-    In general, \TT{replay} attacks involve writing a memory block at address
-    \TT{A} with an older version of the memory block at the same address
-    \TT{A}.
-  \item Attackers are capable of isolating the off-chip memory chip and reading
-    and modifying the contents of the memory. This is especially pronounced in
-    systems where non-volatile memory technologies, such as phase change memory
-    (PCM), are used since memory persists even after the system is powered off.
-    When using non-volatile memory technologies, limited write durability and
-    should also be considered.
+\begin{enumerate}
+  \item Talk about growth of mobile devices, connectivity and how mobile
+    devices handle increasing amounts of sensitive data.
+  \item Memory encryption has become a prominent research topic - providing low
+    cost (money, area, power and design complexity) and high performance (high
+    throughput, low latency) memory encryption primitives is very important.
+  \item Generally memory encryption has been studied for general purpose
+    processors (GPP) where power constraints are not as stringent however for
+    mobile devies power is a first order design constraint.
+  \item Providing low power memory encryption is very important to enable
+    memory encryption for mobile devices.
+  \item Characterizing the power overhead of the memory system is still an open
+    problem - especially in the context of encryption.
+  \item Talk about the two main sources of power consumption \fixme{add
+    pictures of dram chip toplogies}
+  \item We use first order approximations to model the power overhead of
+    encrypting data on the memory system.
+  \item We verify that encrypted data has a significant power overhead \fixme{
+    add numbers}
+  \item Outline the paper's sections
 \end{enumerate}
 
-Generally, the thread model assumes that the interconnect fabric and buses are
-not secure and attackers have access and the capability to tamper with these
-hardware systems. The security measures employed aim to prevent or detect
-attacks following this threat model. Attacks targeting availability of
-hardware modules such as the processor or off-chip memory are outside of the
-scope of this survey. We believe that this is a valid threat model as it has
-been used in previous studies \cite{surveyInt}.
-
-The following sections are organized as follows: Section
-\ref{sec-related} reviews the related work in the research community, Section
-\ref{sec-discussions} discusses the strengths and weakness of the current work
-and Section \ref{sec-conclusions} concludes with the future directions for
-efficient, low-cost memory protection techniques.
+%Define the problem and the goal of the project
+%Explain why the problem is important
+%Summarize your approach and key results
+%Outline the rest of the paper
