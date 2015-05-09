@@ -1,10 +1,13 @@
 \begin{thebibliography}{1}
 
-\bibitem{surveyInt}
-R.~Elbaz, D.~Champagne, C.~Gebotys, B.~R. Lee, N.~Potlapally, and L.~Torres.
-\newblock {Hardware Mechanisms for Memory Authentication: A Survey of Existing
-  Techniques and Engines}.
-\newblock {\em Transactions on Computational Science IV, Lecture Notes in
-  Computer Science (LNCS)}, 2009.
+\bibitem{ddr-design}
+J.~Burnett.
+\newblock {DDR3 Design Considerations for PCB Applications}.
+\newblock Jul 2009.
+
+\bibitem{hollis}
+T.~M. Hollis.
+\newblock {Data Bus Inversion in High-Speed Memory Applications}.
+\newblock {\em IEEE Transactions on Circuits and Systems}, 2009.
 
 \end{thebibliography}
