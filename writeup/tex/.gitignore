@@ -1,4 +1,5 @@
 *.aux
 *.bbl
 *.blg
-*.pdf
+
+!*.pdf
