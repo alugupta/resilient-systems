@@ -36,30 +36,60 @@ often operate under strict power and area constraints. Providing secure memory
 protection while following the prescribed power and area constraints as well as
 maintaining performance of the computing devices is an ongoing challenge.
 
-\begin{enumerate}
-  \item Characterizing the power overhead of the memory system is still an open
-    problem - especially in the context of encryption.
-  \item We use first order approximations to model the power overhead of
-  \item On die termination - ODT
-    encrypting data on the memory system.
-  \item We verify that encrypted data has a significant power overhead \fixme{
-    add numbers}
-  \item Outline the paper's sections
-\end{enumerate}
+According to Hollis \cite{hollis} there are two main source of power
+consumption when driving I/O:
+
+\paragraph{Dynamic A/C Power} Dynamic A/C power consumption from charging and
+discharging capacitances (e.g. electrostatic discharge devices, driver output
+capacitance, receiver input capacitance and the channel itself), is possibly
+the dominant and most universal form of I/O power consumption. However, once
+the capacitances have reached steady state, the dynamic a/c power consumption
+is negligible. For the purposes of our study we assume that all device
+capacitances are already in steady state - simplifying our model as we no
+longer have to consider dynamic a/c power consumption.
+
+\paragraph{Link Termination} The second most common source of I/O power
+consumption is termination schemes of the link. Intutively, when the driver
+outputs a signal received by the I/O a significant portion of the signal is
+reflected back to the driver itself. The driver has to not only power the
+desired signal but also overcome the signal reflections. In the context of
+off-chip memory, more efficient DDR chip topologies have been developed. For
+example, in Figure \ref{dram-chips} illustrates the DDR2 and DDR3 DDR chip
+topologies. As driving frequencies for DDR3 increased, memory architects
+adopted the fly-by network topology which greatly reduces signal reflections
+and improves On-Die Termination (ODT).
 
 \begin{figure}[!htb]
   \centering
   \begin{subfigure}[b]{0.4\textwidth}
     \includegraphics[width=\textwidth]{figs/ddr2-topology}
-    \caption{ddr2}
+    \caption{Example DDR2 DRAM chip topology}
     \label{fig:ddr2-chips}
   \end{subfigure}
 
   \begin{subfigure}[b]{0.4\textwidth}
     \includegraphics[width=\textwidth]{figs/ddr3-topology}
-    \caption{ddr3}
+    \caption{Example DDR3 DRAM chip topology}
     \label{fig:ddr3-chips}
   \end{subfigure}
-  \caption{DDR DRAM Chip Topologies \cite{ddr-design}}
+  \caption{Representative DRAM chip topologies for DDR2 and DDR3 memory technologies taken from \cite{ddr-design}}
   \label{dram-chips}
 \end{figure}
+
+Though existing DDR3 memory technologies implement more efficient DRAM chip
+topologies to reduce signal reflections, ODT is still a prominent source of
+power consumption. Memory architects are looking at more efficient read/write
+schemes such as Data Bus Inversion (DBI) for further improving ODT power
+consumption for DDR4. Our study focuses on using first order models for DBI
+developed by Hollis \cite{hollis} in the context of memory encryption to
+simulate the power overhead of secure memory encryption. \fixme{Add some
+numbers}
+
+The rest of this paper is organized as follows: Section~\ref{sec-problem}
+outlines our project's goal and outlines the memory encryption model used,
+Section~\ref{sec-methodology} outlines the high level model and experimental
+setup for our study, Section~\ref{sec-evaluation} analyzes our results and
+data, Section~\ref{sec-group-dynamics} review our group dynamic's and work
+distribution, Section~\ref{sec-related} reviews related work in relation to
+power consumption of secure memory encryptionand Section~\ref{sec-conclusions}
+concludes the paper with final remakers and future work.
