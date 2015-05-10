@@ -28,6 +28,11 @@ def readFile(filename):
 
     return lines
 
+def writeFile(filename, lines):
+    with open(filename, 'w') as f:
+        f.writelines(lines)
+
+
 ################################################################################
 # Checks to see is ``fullString'' contains ``substring''
 # @args : fullString and substring must be strings
@@ -149,6 +154,64 @@ def countZeros(num, bitwidth):
 ################################################################################
 # Simulates the zero sensitive DBI-DC algorithm for a single binary string,
 ################################################################################
+
+def nonSingleDbiDc(num, bitwidth):
+    binaryNum = format(num, '0' + str(bitwidth) + 'b')
+    byteNum = [binaryNum[0:8], binaryNum[8:16], binaryNum[16:24], binaryNum[24:32]]
+    zeros = map(lambda x: countZeros(x, 8), byteNum)
+    totalZeros = 0
+    for count in zeros:
+        totalZeros += count
+
+    return totalZeros
+
+def noncumulativeDbiDc(nums, bitwdith):
+    totalZeros = 0
+    totalBits = len(nums) * bitwdith
+    for num in nums:
+        totalZeros += nonSingleDbiDc(num, bitwdith)
+
+    return float(totalZeros) / float(totalBits)
+
+def nondbiDc(misses, bitwdith):
+    _, values = zip(*misses)
+    return noncumulativeDbiDc(values, bitwdith)
+
+def nonDbiAc(previous, new, bitwdith):
+    difference = previous ^ new
+    binaryDifference = format(difference, '0' + str(bitwdith) + 'b')
+    return countOnes(binaryDifference)
+
+def nonStoreAc(stores, bitwdith):
+    seenAddresses = []
+    seenValues = []
+
+    totalDbiCount = 0
+    totalBits = len(stores) * bitwdith
+    for [addr, value] in stores:
+        try:
+            index = seenAddresses.index(addr)
+            totalDbiCount += nonDbiAc(seenValues[index], value, bitwdith)
+        except ValueError:
+            totalDbiCount += nonDbiAc(0, value, bitwdith)
+
+        seenAddresses.insert(0, addr)
+        seenValues.insert(0, addr)
+
+    return float(totalDbiCount) / float(totalBits)
+
+def nonLoadDbiAc(loads, bitwdith):
+    _, values = zip(*loads)
+    previous = 0
+    totalDbiCount = 0
+    totalBits = len(values) * bitwdith
+    for value in values:
+        totalDbiCount += nonDbiAc(previous, value, bitwdith)
+        previous = value
+
+    return float(totalDbiCount) / float(totalBits)
+
+
 def singleDbiDc(num, bitwdith):
     binaryNum = format(num, '0' + str(bitwdith) + 'b')
     byteNum = [binaryNum[0:8], binaryNum[8:16], binaryNum[16:24], binaryNum[24:32]]
@@ -216,6 +279,15 @@ def main():
     simNames = readFile("simulations")
     simNames = map(lambda x: x.rstrip('\n'), simNames)
 
+    nonloadac  = []
+    nonstoreac = []
+    nonloaddc  = []
+    nonstoredc = []
+
+    loadac  = []
+    storeac = []
+    loaddc  = []
+    storedc = []
     for simName in simNames:
         lines = readFile("memory-traces/" + simName)
 
@@ -224,10 +296,27 @@ def main():
         loads = copyDelimmtedLines(misses, loadDelimetter)
         stores = makeMissList(stores)
         loads = makeMissList(loads)
-        print simName + " Load AC  : " , loadDbiAc(loads, 32)
-        print simName + " Store AC : ", storeDbiAc(stores, 32)
-        print simName + " Load DC  : ", dbiDc(loads, 32)
-        print simName + " Store DC : ", dbiDc(stores, 32)
+
+        loadac.append(str(loadDbiAc(loads,    32 )) + '\n')
+        storeac.append(str(storeDbiAc(stores, 32 )) + '\n')
+        loaddc.append(str(dbiDc(loads,        32 )) + '\n')
+        storedc.append(str(dbiDc(stores,      32 )) + '\n')
+
+        nonloadac.append(str (nonLoadDbiAc(loads,    32 )) + '\n')
+        nonstoreac.append(str(nonStoreAc(stores, 32 )) + '\n')
+        nonloaddc.append(str (nondbiDc(loads,        32 )) + '\n')
+        nonstoredc.append(str(nondbiDc(stores,      32 )) + '\n')
+
+
+    writeFile("plots/loaddc", loaddc)
+    writeFile("plots/loadac", loadac)
+    writeFile("plots/storeac", storeac)
+    writeFile("plots/storedc", storedc)
+
+    writeFile("plots/nonloaddc", loaddc)
+    writeFile("plots/nonloadac", loadac)
+    writeFile("plots/nonstoreac", storeac)
+    writeFile("plots/nonstoredc", storedc)
 
 if __name__ == '__main__':
     main()
