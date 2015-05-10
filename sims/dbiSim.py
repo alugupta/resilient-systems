@@ -152,9 +152,8 @@ def countZeros(num, bitwidth):
     return bitwidth - countOnes(num)
 
 ################################################################################
-# Simulates the zero sensitive DBI-DC algorithm for a single binary string,
+# Simulates system with no DBI.
 ################################################################################
-
 def nonSingleDbiDc(num, bitwidth):
     binaryNum = format(num, '0' + str(bitwidth) + 'b')
     byteNum = [binaryNum[0:8], binaryNum[8:16], binaryNum[16:24], binaryNum[24:32]]
@@ -211,7 +210,9 @@ def nonLoadDbiAc(loads, bitwdith):
 
     return float(totalDbiCount) / float(totalBits)
 
-
+################################################################################
+# Simulates the zero sensitive DBI-DC algorithm for a single binary string,
+################################################################################
 def singleDbiDc(num, bitwdith):
     binaryNum = format(num, '0' + str(bitwdith) + 'b')
     byteNum = [binaryNum[0:8], binaryNum[8:16], binaryNum[16:24], binaryNum[24:32]]
@@ -275,6 +276,25 @@ def loadDbiAc(loads, bitwdith):
 
     return float(totalDbiCount) / float(totalBits)
 
+def comparitiveAnalysis(loaddc, loadac, storedc, storeac, nonloaddc, nonloadac,
+        nonstoredc, nonstoreac):
+
+    loaddcDBI  = map(lambda l, n: (float(l) - float(n) ) / float(n) , loaddc, nonloaddc)
+    loadacDBI  = map(lambda l, n: (float(l) - float(n) ) / float(n) , loadac, nonloadac)
+    storedcDBI = map(lambda l, n: (float(l) - float(n) ) / float(n) , storedc, nonstoredc)
+    storeacDBI = map(lambda l, n: (float(l) - float(n) ) / float(n) , storeac, nonstoreac)
+
+    elements   = len(loadac)
+    loaddcDBI  = abs(reduce(lambda x, y: x + y, loaddcDBI, 0) / elements * 100)
+    loadacDBI  = abs(reduce(lambda x, y: x + y, loadacDBI, 0) / elements * 100)
+    storedcDBI = abs(reduce(lambda x, y: x + y, storedcDBI, 0) / elements * 100)
+    storeacDBI = abs(reduce(lambda x, y: x + y, storeacDBI, 0) / elements * 100)
+
+    print loaddcDBI
+    print loadacDBI
+    print storedcDBI
+    print storeacDBI
+
 def main():
     simNames = readFile("simulations")
     simNames = map(lambda x: x.rstrip('\n'), simNames)
@@ -288,6 +308,7 @@ def main():
     storeac = []
     loaddc  = []
     storedc = []
+
     for simName in simNames:
         lines = readFile("memory-traces/" + simName)
 
@@ -302,21 +323,23 @@ def main():
         loaddc.append(str(dbiDc(loads,        32 )) + '\n')
         storedc.append(str(dbiDc(stores,      32 )) + '\n')
 
-        nonloadac.append(str (nonLoadDbiAc(loads,    32 )) + '\n')
-        nonstoreac.append(str(nonStoreAc(stores, 32 )) + '\n')
-        nonloaddc.append(str (nondbiDc(loads,        32 )) + '\n')
-        nonstoredc.append(str(nondbiDc(stores,      32 )) + '\n')
+        nonloadac.append(str (nonLoadDbiAc(loads, 32 )) + '\n')
+        nonstoreac.append(str(nonStoreAc(stores,  32 )) + '\n')
+        nonloaddc.append(str (nondbiDc(loads,     32 )) + '\n')
+        nonstoredc.append(str(nondbiDc(stores,    32 )) + '\n')
 
-
-    writeFile("plots/loaddc", loaddc)
-    writeFile("plots/loadac", loadac)
+    writeFile("plots/loaddc",  loaddc)
+    writeFile("plots/loadac",  loadac)
     writeFile("plots/storeac", storeac)
     writeFile("plots/storedc", storedc)
 
-    writeFile("plots/nonloaddc", loaddc)
-    writeFile("plots/nonloadac", loadac)
-    writeFile("plots/nonstoreac", storeac)
-    writeFile("plots/nonstoredc", storedc)
+    writeFile("plots/nonloaddc",  nonloaddc)
+    writeFile("plots/nonloadac",  nonloadac)
+    writeFile("plots/nonstoreac", nonstoreac)
+    writeFile("plots/nonstoredc", nonstoredc)
+
+    comparitiveAnalysis(loaddc, loadac, storedc, storeac, nonloaddc, nonloadac,
+        nonstoredc, nonstoreac)
 
 if __name__ == '__main__':
     main()

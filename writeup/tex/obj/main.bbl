@@ -30,6 +30,12 @@ E.~K.~Ardestani and J.~Renau.
 \newblock In {\em International Symposium on High Performance Computer
   Architecture}, HPCA'19, 2013.
 
+\bibitem{low-power-dram}
+S.-W. Kwack and K.-D. Kwack.
+\newblock A high speed graphics dram with low power and low noise data bus
+  inversion in 54nm cmos.
+\newblock IEICE Electronics Express, 2009.
+
 \bibitem{pin}
 C.-K. Luk, R.~Cohn, R.~Muth, H.~Patil, A.~Klauser, G.~Lowney, S.~Wallace, V.~J.
   Reddi, and K.~Hazelwood.
