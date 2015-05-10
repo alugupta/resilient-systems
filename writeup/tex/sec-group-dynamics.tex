@@ -3,4 +3,31 @@
 
 %Describe contributions by each group member / how was the work split between
 %the two.
+Generally, we worked together for all parts of the project. To start with, we
+came up with the design and overall experiment together. This included
+investigating Gem5, SESC, and Pin. Since Monica had more experience regarding
+the computer architectural simulators she was able to better understand the
+benefits of using Pin versus Gem5 and SESC. Next we split up the work for
+getting Pin setup, acquiring benchmarks and investigating DRAM simulators.
+Monica worked on acquiring the benchmarks and finding DRAM simulators - namely
+DRAMSim. Udit worked on organizing, understanding and implementing a working
+Pintool for generating the memory trace. Once the initial Pintool for
+generating a memory trace using the \TT{pinatrace} and \TT{safecopy} examples,
+(without a data-cache) was completed, we worked together to test the Pintool on
+small generic \TT{bash} commands and sample programs we wrote.
 
+The two of us then worked together on understanding DRAMSim and understanding
+how to run the infrastructure using user inputted memory traces. After a few
+days of analyzing the tool flow, the generated power traces, and the source
+code the two of us decided that DRAMSim would not be a viable option for our
+project. At this point we went back to existing literature to find simple DBI
+models that we could use for power modeling. This is when we found Hollis'
+model \cite{hollis} and agreed to use it for our study. Concurrently we worked
+on implementing a data-cache instrumentation tool using Pin to isolate the
+cache misses - a more realistic configuration for our project. Finally, once
+the DBI model was decided, Udit focused on writing the simple Python script to
+analyze the memory traces and Monica focused on organizing all of our sources,
+background research and began working on the power-point.
+
+Needless to say, most of the project was done together since much of the work
+was understanding existing models and tools.
