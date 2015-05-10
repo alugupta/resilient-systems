@@ -135,11 +135,21 @@ binaries. That is, we used the \TT{dcache} and \TT{safecopy} examples provided
 to create a single Pintool that provided a trace of all first-level cache
 misses. On every miss, the Pintool would output whether the operation was a
 \TT{load} or \TT{store} operation, the address and the value being read or
-written to memory.
+written to memory. Unlike Gem5 and ESESC, Pin does not provide a cycle-by-cycle
+timing trace for when specific architectural events occur. Though this may be
+efficient for system-wide power analysis, our model is not parametrized on time
+but only the specific bit values of data units being read and written. In our
+experience, Pin worked well for generating such a coarse, event based memory
+trace.
+
+For the purposes of our study we only simulated the data-cache with : 32KB
+total size, 8-way associativity, and 128B cache line size. The Pintool we
+generated allows the user to input a defined size, associativity and line size.
+The specific parameters chosen were used in previous Pin exercises as the
+default configuration and seemed reasonable for our study.
 
 \begin{enumerate}
   \item PIN - dynamic binary instrumentaiton tool : describe cache settings
-  \item Computer architecture analysis tool
   \item DRAMSim - Did not work for us.
   \item Python Script to analyze the loads and stores from the trace outptted
     from PIN
