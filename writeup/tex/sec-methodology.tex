@@ -69,10 +69,56 @@ The following sections outline our experimental setup for analyzing the DBI
 enabled power model described.
 
 \subsection{Experimental Setup}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.3\textwidth]{figs/exp-design}
+  \caption{General system architecture for the experimental setup for analyzing
+  the DBI enabled power model}
+  \label{fig:exp}
+\end{figure}
+
+Figure \ref{fig:exp} illustrates the general experimental setup we used to
+implement the DBI model described earlier. First, we need a set of
+representative benchmarks to run through to generate realistic memory traces
+that can be used to analyze the effect of memory encryption on power
+consumption. We chose MiBench \cite{mibench} for our benchmark suite. MiBench
+consists of applications representative of embedded and mobile workloads and
+provides easy to use build binary executables which integrates well with the
+\TT{PIN} architectural simulator we used. We chose not to use the \TT{SPEC2006}
+benchmark as the applications targeted workloads handled by general purpose
+processors. We used 28 applications in the MiBench suite (the following 14
+applications on big and small data-sets):
+
+\begin{multicols}{2}
+  \centering
+  \begin{enumerate}
+    \item \TT{basicmath}
+    \item \TT{bitcount}
+    \item \TT{qsort}
+    \item \TT{susan}
+    \item \TT{jpeg}
+    \item \TT{dijkstra}
+    \item \TT{patricia}
+    \item \TT{stringsearch}
+    \item \TT{blowfish}
+    \item \TT{sha}
+    \item \TT{adpcm}
+    \item \TT{CRC32}
+    \item \TT{FFT}
+    \item \TT{gsm}
+  \end{enumerate}
+\end{multicols}
+
+The chosen set of MiBench applications spans all six classes provided by the
+benchmark: \TT{automotive}, \TT{consumer}, \TT{network}, \TT{office},
+\TT{security}, and \TT{telecomm}.
+
+\subsection{Architectural Simulator}
+
 \begin{enumerate}
   \item PIN - dynamic binary instrumentaiton tool : describe cache settings
   \item Computer architecture analysis tool
-  \item MiBench - Justify why MiBench (mobile) ---- SPEC is not as good
   \item DRAMSim - Did not work for us.
   \item Python Script to analyze the loads and stores from the trace outptted
     from PIN

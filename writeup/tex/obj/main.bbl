@@ -5,6 +5,13 @@ J.~Burnett.
 \newblock {DDR3 Design Considerations for PCB Applications}.
 \newblock Jul 2009.
 
+\bibitem{mibench}
+R.~M. Guthaus, S.~J. Ringenberg, D.~Ernst, M.~T. Austin, T.~Mudge, and B.~R.
+  Brown.
+\newblock {MiBench: A free, commercially representative embedded benchmark
+  suite}.
+\newblock {\em Int'l Symp. on Workload Characterization (IISWC)}, 2001.
+
 \bibitem{hollis}
 T.~M. Hollis.
 \newblock {Data Bus Inversion in High-Speed Memory Applications}.

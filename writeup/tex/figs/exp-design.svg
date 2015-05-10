@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg3371"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="exp-design.svg">
+  <defs
+     id="defs3373">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker9326-2-80"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9328-2-2"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker9326-2-80-8"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9328-2-2-3"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6,-0.6)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="162.38078"
+     inkscape:cy="730.58669"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="626"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3376">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.18026548000000001;fill:#13b5da;fill-opacity:0.29629630000000001;stroke:#050000;stroke-width:4.26399993999999970;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3379"
+       width="222.85715"
+       height="217.14285"
+       x="17.142857"
+       y="112.36218" />
+    <rect
+       style="opacity:0.18026548000000001;fill:#13b5da;fill-opacity:0.29629630000000001;stroke:#050000;stroke-width:4.26399993999999970;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3379-5"
+       width="222.85715"
+       height="217.14285"
+       x="25.714277"
+       y="120.93361" />
+    <rect
+       style="opacity:0.18026548000000001;fill:#13b5da;fill-opacity:0.29629630000000001;stroke:#050000;stroke-width:4.26399993999999970;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3379-0"
+       width="222.85715"
+       height="217.14285"
+       x="37.142853"
+       y="129.50505" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
+       x="51.428574"
+       y="235.21933"
+       id="text3406"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3408"
+         x="51.428574"
+         y="235.21933">MI-Bench</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.50062513000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker9326-2-80)"
+       d="m 262.17481,215.20554 c 110.90025,0.0421 110.90025,0.0421 110.90025,0.0421"
+       id="path9144-0-75-3-9-0-6-2"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3933"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion3935"><rect
+           id="rect3937"
+           width="120"
+           height="51.42857"
+           x="357.14285"
+           y="200.93361" /></flowRegion><flowPara
+         id="flowPara3939"></flowPara></flowRoot>    <rect
+       style="opacity:0.18026548000000001;fill:#da1313;fill-opacity:0.69312169999999995;stroke:#050000;stroke-width:4.26399993999999970;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3941"
+       width="222.85715"
+       height="205.71428"
+       x="377.14285"
+       y="120.93362" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="489.25812"
+       y="163.42795"
+       id="text4717"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4719"
+         x="489.25812"
+         y="163.42795"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Georgia;-inkscape-font-specification:Georgia">PIN</tspan><tspan
+         sodipodi:role="line"
+         x="489.25812"
+         y="213.42795"
+         id="tspan4721"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Georgia;-inkscape-font-specification:Georgia" /><tspan
+         sodipodi:role="line"
+         x="494.10187"
+         y="263.42795"
+         id="tspan4723"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Georgia;-inkscape-font-specification:Georgia">Data-Cache </tspan><tspan
+         sodipodi:role="line"
+         x="489.25812"
+         y="313.42795"
+         id="tspan4725"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Georgia;-inkscape-font-specification:Georgia">Instrument Program</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.50062513000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker9326-2-80)"
+       d="M 487.80857,331.20836 C 485.99551,442.0938 485.99551,442.0938 485.99551,442.0938"
+       id="path9144-0-75-3-9-0-6-2-5"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:0.18026548000000001;fill:#20da13;fill-opacity:0.69312167000000002;stroke:#050000;stroke-width:2.88861488999999990;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3941-1"
+       width="222.85715"
+       height="94.408127"
+       x="379.50558"
+       y="444.42877" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
+       x="282.84271"
+       y="500.81888"
+       id="text4771"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4773"
+         x="282.84271"
+         y="500.81888">Memory Trace Analyzer</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4777"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Georgia;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Georgia;font-stretch:normal;font-variant:normal"><flowRegion
+         id="flowRegion4779"><rect
+           id="rect4781"
+           width="822.26416"
+           height="575.78693"
+           x="-66.670067"
+           y="42.209637"
+           style="-inkscape-font-specification:Georgia;font-family:Georgia;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal" /></flowRegion><flowPara
+         id="flowPara4783"></flowPara></flowRoot>  </g>
+</svg>
