@@ -37,4 +37,9 @@ C.-K. Luk, R.~Cohn, R.~Muth, H.~Patil, A.~Klauser, G.~Lowney, S.~Wallace, V.~J.
   instrumentation.
 \newblock {\em SIGPLAN Not.}, 40(6):190--200, Jun 2005.
 
+\bibitem{dram-sim}
+D.~Wang, B.~Ganesh, N.~Tuaycharoen, K.~Baynes, A.~Jaleel, and B.~Jacob.
+\newblock {DRAMSim: A memory-system simulator}.
+\newblock 2005.
+
 \end{thebibliography}
