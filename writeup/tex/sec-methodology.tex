@@ -114,7 +114,28 @@ The chosen set of MiBench applications spans all six classes provided by the
 benchmark: \TT{automotive}, \TT{consumer}, \TT{network}, \TT{office},
 \TT{security}, and \TT{telecomm}.
 
-\subsection{Architectural Simulator}
+\subsubsection{Architectural Simulator}
+In order to analyze the impact of memory encryption on DBI-enabled DDR4 memory
+systems, we need to generate memory traces from the MiBench applications.
+Traditional simulator such as \TT{Gem5} \cite{gem5} and \TT{ESESC} \cite{esesc}
+did not meet our constraints. Gem5 and ESESC for the purposes of this study
+required significant overhead in terms of establishing an environment and
+integrating the simulators with MiBench applications to generate usable memory
+traces. Instead we chose use \TT{Pin} \cite{pin} - a dynamic binary
+instrumentation tool developed by Intel as a lean, easy to use computer
+architectural simulator. Since Pin performs run-time program instrumentation
+analysis on compiled binary files, integrating Pin with MiBench required little
+effort. Once we generated the specific \TT{Pintool} to generate memory traces,
+we could simply run the Pin simulator providing the Pintool and compiled
+Mibench application binaries as inputs.
+
+Leveraging the IA-32 instruction set architecture framework provided by Pin, we
+created a \TT{Pintool}, to output the memory trace of arbitrary compiled
+binaries. That is, we used the \TT{dcache} and \TT{safecopy} examples provided
+to create a single Pintool that provided a trace of all first-level cache
+misses. On every miss, the Pintool would output whether the operation was a
+\TT{load} or \TT{store} operation, the address and the value being read or
+written to memory.
 
 \begin{enumerate}
   \item PIN - dynamic binary instrumentaiton tool : describe cache settings

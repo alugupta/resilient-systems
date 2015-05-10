@@ -1,5 +1,12 @@
 \begin{thebibliography}{1}
 
+\bibitem{gem5}
+N.~Binkert, B.~Beckmann, G.~Black, S.~K. Reinhardt, A.~Saidi, A.~Basu,
+  J.~Hestness, D.~R. Hower, T.~Krishna, S.~Sardashti, R.~Sen, K.~Sewell,
+  M.~Shoaib, N.~Vaish, M.~D. Hill, and D.~A. Wood.
+\newblock The gem5 simulator.
+\newblock {\em SIGARCH Comput. Archit. News}, 39(2):1--7, Aug 2011.
+
 \bibitem{ddr-design}
 J.~Burnett.
 \newblock {DDR3 Design Considerations for PCB Applications}.
@@ -16,5 +23,18 @@ R.~M. Guthaus, S.~J. Ringenberg, D.~Ernst, M.~T. Austin, T.~Mudge, and B.~R.
 T.~M. Hollis.
 \newblock {Data Bus Inversion in High-Speed Memory Applications}.
 \newblock {\em IEEE Transactions on Circuits and Systems}, 2009.
+
+\bibitem{esesc}
+E.~K.~Ardestani and J.~Renau.
+\newblock {ESESC: A Fast Multicore Simulator Using Time-Based Sampling}.
+\newblock In {\em International Symposium on High Performance Computer
+  Architecture}, HPCA'19, 2013.
+
+\bibitem{pin}
+C.-K. Luk, R.~Cohn, R.~Muth, H.~Patil, A.~Klauser, G.~Lowney, S.~Wallace, V.~J.
+  Reddi, and K.~Hazelwood.
+\newblock Pin: Building customized program analysis tools with dynamic
+  instrumentation.
+\newblock {\em SIGPLAN Not.}, 40(6):190--200, Jun 2005.
 
 \end{thebibliography}
