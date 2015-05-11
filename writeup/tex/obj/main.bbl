@@ -48,4 +48,9 @@ D.~Wang, B.~Ganesh, N.~Tuaycharoen, K.~Baynes, A.~Jaleel, and B.~Jacob.
 \newblock {DRAMSim: A memory-system simulator}.
 \newblock 2005.
 
+\bibitem{avalance}
+A.~Webster and T.~S.
+\newblock {On the design of s-boxes}.
+\newblock {\em Advances in Cyptology CRYPTO}, 1986.
+
 \end{thebibliography}
