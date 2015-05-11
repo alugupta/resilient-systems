@@ -1,4 +1,25 @@
 \section{Conclusion}
 \label{sec-conclusions}
-\fixme{0.5pgs}
 
+Generally our study hopes to make a small step in developing a reliable model
+for power consumption overheads of secure memory systems. Where previous
+studies have either focused on performance and area or non-volatile memory
+systems, our system leverages traditional DDR based memory technologies ---
+namely DDR4. Focusing on DBI-enabled memory systems, we have developed a
+simulation infrastructure that can be used to model the affects of encrypted
+data on ODT power consumption resulting from link termination and signal
+reflections. In theory, this model could be used for a wide array of I/O
+devices that support DBI, or similar schemes. We leverage Pin, a dynamic
+instrumentation tool for computer architecture simulations and MiBench as a
+representative set of mobile workloads. We find that encryption, as expected,
+does incur a significant power overhead on DBI-enabled off-chip memory systems.
+
+In the future we hope to develop a real computing system with a DBI-enabled
+off-chip memory system and verify our models and collect empirical data from
+the prototype. This would would also enable researchers to measure system-wide
+power metrics for improving secure processor designs. We also hope to
+investigate alternative write schemes to DBI --- especially ones targeting
+encrypted read and write operations. Finally, we hope that one day a single
+unified model or infrastructure for simulating the performance, area and power
+consumption of real mobile computing systems is developed to facilitate more
+productive design space explorations of secure mobile computing.

@@ -3,5 +3,39 @@
 
 %Describe related work. You need to show how the previous work is related to or
 %different from your project.
-\fixme{0.5pgs}
+Generally, previous work in the domain of secure memory protection has focused
+on the performance and area overhead of cryptographic memory encryption ---
+especially for general purpose and high performance computing systems. For
+instance, Suh et. al. \cite{suh-memIntEnc} explores efficient memory encryption
+and integrity verification schemes using logs to maintain snapshots of the
+memory. Generally, Suh et. al. \cite{suh-memIntEnc} expand on the same memory
+encryption scheme shown in Figure \ref{fig:sys-arch} by using the AES-CTR
+operating mode and encryption not only the data value but meta-data information
+such as the address, a fixed value and counter for increased protection.
 
+Previous work has also explored the more efficient cryptographic encryption
+schemes such as Galois Counter Mode (GCM) \cite{nistGCM} for memory encryption.
+For instance, Yan et. al. \cite{gcmMem} leverage GCM's high degree of
+parallelism to provide memory encryption and integrity verification. Yan et.
+al. and Suh et. al. both focus on providing both memory encryption and
+integrity verification --- suggesting that there may be a relatively unexplored
+design space for efficient systems in terms of performance, area, power and
+design complexity that offers both security features.
+
+Recent studies have begun to explore power efficiency of secure memory systems.
+For instance, Young et. al. \cite{duece} explore memory encryption for
+non-volatile memory systems focusing on power and durability. Young et. al.
+propose DEUCE - a write efficient encryption scheme that maintains two virtual
+counters for encrypting memory. DEUCE's power model is dependent on minimizing
+the number of bit flips by using write compression schemes such as
+\TT{Flip-n-Write} \cite{fnw}. Similar to minimizing the DBI-AC ratio, DEUECE
+was able to minimize the number of bit flips from 50 \% on average to 24 \% by
+clever cache-line encryption schemes with dual counters.
+
+Existing research efforts have focused on performance and area overhead of
+memory encryption. Though DEUECE is one example of researchers considering
+power consumption in regards to memory encryption, the study focuses on systems
+using non-volatile memory. Few studies explore encryption for off-chip DDR
+based memory technologies in terms of empirical results and model based
+simulations. We believe that this study is a small step in modeling the power
+consumption of secure mobile systems.

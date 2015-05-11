@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{gem5}
 N.~Binkert, B.~Beckmann, G.~Black, S.~K. Reinhardt, A.~Saidi, A.~Basu,
@@ -11,6 +11,18 @@ N.~Binkert, B.~Beckmann, G.~Black, S.~K. Reinhardt, A.~Saidi, A.~Basu,
 J.~Burnett.
 \newblock {DDR3 Design Considerations for PCB Applications}.
 \newblock Jul 2009.
+
+\bibitem{fnw}
+S.~Cho and H.~Lee.
+\newblock {Filp-n-write: A simple deterministic technique to improve pram write
+  performance, energy and endurance}.
+\newblock {\em Int'l Symp. on Microarchitecture (MICRO)}, 2009.
+
+\bibitem{nistGCM}
+M.~Dworkin.
+\newblock {Recommendation for Block Cipher Modes of Operation: Galois/Counter
+  Mode (GCM) and GMAC}.
+\newblock {\em NIST Special Publication}, 2007.
 
 \bibitem{mibench}
 R.~M. Guthaus, S.~J. Ringenberg, D.~Ernst, M.~T. Austin, T.~Mudge, and B.~R.
@@ -43,6 +55,12 @@ C.-K. Luk, R.~Cohn, R.~Muth, H.~Patil, A.~Klauser, G.~Lowney, S.~Wallace, V.~J.
   instrumentation.
 \newblock {\em SIGPLAN Not.}, 40(6):190--200, Jun 2005.
 
+\bibitem{suh-memIntEnc}
+E.~G. Suh, D.~Clarke, B.~Gassend, v.~M. Dijk, and S.~Devadas.
+\newblock {Efficient Memory Integrity Verification and Encryption for Secure
+  Processors}.
+\newblock {\em Int'l Symp. on Microarchitecture (MICRO)}, 2003.
+
 \bibitem{dram-sim}
 D.~Wang, B.~Ganesh, N.~Tuaycharoen, K.~Baynes, A.~Jaleel, and B.~Jacob.
 \newblock {DRAMSim: A memory-system simulator}.
@@ -52,5 +70,17 @@ D.~Wang, B.~Ganesh, N.~Tuaycharoen, K.~Baynes, A.~Jaleel, and B.~Jacob.
 A.~Webster and T.~S.
 \newblock {On the design of s-boxes}.
 \newblock {\em Advances in Cyptology CRYPTO}, 1986.
+
+\bibitem{gcmMem}
+C.~Yan, B.~Rogers, D.~Englender, Y.~Solihin, and M.~Prvulovic.
+\newblock {Improving Cost, Performance, and Security of Memory Encryption and
+  Authentication}.
+\newblock {\em Int'l Symp. on Computer Architecture (ISCA)}, 2006.
+
+\bibitem{duece}
+V.~Young, J.~P. Nair, and K.~M. Qureshi.
+\newblock {DEUCE: Write-Efficient Encryption for Non-Volatile Memories}.
+\newblock {\em Int'l Conf. on Architectural Support for Programming Languages
+  and Operating Systems (ASPLOS)}, 2015.
 
 \end{thebibliography}

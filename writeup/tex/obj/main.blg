@@ -10,45 +10,45 @@ Warning--string name "sigarch" is undefined
 Warning--empty booktitle in ddr-design
 Warning--empty booktitle in low-power-dram
 Warning--empty journal in dram-sim
-You've used 9 entries,
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            700 strings with 9146 characters,
-and the built_in function-call counts, 3254 in all, are:
-= -- 278
-> -- 250
+            723 strings with 9940 characters,
+and the built_in function-call counts, 4637 in all, are:
+= -- 404
+> -- 344
 < -- 0
-+ -- 101
-- -- 90
-* -- 255
-:= -- 591
-add.period$ -- 27
-call.type$ -- 9
-change.case$ -- 72
++ -- 138
+- -- 122
+* -- 342
+:= -- 854
+add.period$ -- 42
+call.type$ -- 14
+change.case$ -- 103
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 102
-empty$ -- 199
-format.name$ -- 90
-if$ -- 624
+cite$ -- 17
+duplicate$ -- 152
+empty$ -- 284
+format.name$ -- 122
+if$ -- 892
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 9
-newline$ -- 48
-num.names$ -- 18
-pop$ -- 80
+int.to.str$ -- 14
+missing$ -- 14
+newline$ -- 73
+num.names$ -- 28
+pop$ -- 111
 preamble$ -- 1
-purify$ -- 63
+purify$ -- 89
 quote$ -- 0
-skip$ -- 68
+skip$ -- 103
 stack$ -- 0
-substring$ -- 85
-swap$ -- 9
+substring$ -- 110
+swap$ -- 14
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 56
 warning$ -- 3
-while$ -- 22
-width$ -- 10
-write$ -- 93
+while$ -- 32
+width$ -- 16
+write$ -- 143
 (There were 4 warnings)
