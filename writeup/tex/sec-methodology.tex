@@ -16,19 +16,19 @@ reduce the number of bit flips (DBI-AC) and binary signal probabilities
 (DBI-DC) to improve power consumption of read and write operations. For
 reducing bit flips, take for example the case where memory location $M$
 previously had the value $00000000$ that was being overwritten by the value
-$11111111$. Instead of flipping every bit in $M$, a DBI-AC enabled memory system
-would retain the previous state of $00000000$ and set the DBI flag that
-signifies that all the bits are flipped.  This would incur the power consumption
-of 1 bit flip, not the entire data byte.  Since the power consumption of 0 and
-1 is not the same, depending on memory technology constraints, DBI-DC aims to
-reduce the prevalence of the higher power consuming bit. In the case of DDR4,
-$0$ consumes more power and thus DBI aims to reduce the number of $0$'s and
-increase the number of $1$'s \cite{low-power-dram}. Figure \ref{fig:dbi-dc}
-illustrates the impact of DBI-DC on improving signal quality and consequently
-power consumption of read and write operations. The larger open data eye
-illustrates that there is less interference between the driver and reflected
-signals when using DBI-DC and the smaller $V_{pp}$ suggests that the driver has
-to work less with DBI-DC enabled.
+$11111111$. Instead of flipping every bit at address $M$, a DBI-AC enabled
+memory system would retain the previous state of $00000000$ and set the DBI
+flag that signifies that all the bits are flipped.  This would incur the power
+consumption of 1 bit flip, not the entire data byte being flipped.  Since the
+power consumption of 0 and 1 is not the same, depending on memory technology
+constraints, DBI-DC aims to reduce the prevalence of the higher power consuming
+bit. In the case of DDR4, $0$ consumes more power and thus DBI aims to reduce
+the number of $0$'s and increase the number of $1$'s \cite{low-power-dram}.
+Figure \ref{fig:dbi-dc} illustrates the impact of DBI-DC on improving signal
+quality and consequently power consumption of read and write operations. The
+larger open data eye illustrates that there is less interference between the
+driver and reflected signals when using DBI-DC and the smaller $V_{pp}$
+suggests that the driver has to work less with DBI-DC enabled.
 
 \begin{figure}[!htb]
   \centering
@@ -51,18 +51,21 @@ below:
 
 Where $P_t$ is the ODT power consumption, $P_{dc}$ is the intrinsic DC-power
 consumed and $P_{ac}$ is the intrinsic AC-power consumed by bit flips. The
-ratios $A$ and $B$ determine the DC and AC factors of $P_t$ respectively.
-DBI-DC aims to exploit program structure and reduce $A$ whereas DBI-AC aims to
-reduce $B$. Together they can significantly decrease the ODT power consumption.
-As Hollis \cite{hollis} describes - under the assumption that data written to
-memory or read from memory are completely random:
+ratios $A$ and $B$ determine the DC and AC factors of $P_t$ respectively. That
+is, $P_{dc}$ and $P_{ac}$ are properties of the memory technology and $A$ and
+$B$ are determined by the data being read/written.  DBI-DC aims to exploit
+program structure and reduce $A$ whereas DBI-AC aims to reduce $B$. Together
+they can significantly decrease the ODT power consumption.  Hollis also
+describes - under the assumption that data written to memory or read from
+memory are completely random \cite{hollis}:
 
   $$ A = 0.5$$
   $$ B = 0.5$$
 
 Intuitively, truly random data would have equal probability of each binary
 digit making $A = 0.5$. Similarly, truly random data would have equal
-probability of flipping or not flipping and thus, $B = 0.5$. In order to model
+probability of flipping or not flipping and thus, $B = 0.5$. This will be used
+later for modeling the AC and DC factors for encrypted data. In order to model
 ODT power consumption, we must determine the values of $A$ and $B$ for secure
 memory systems with encryption and insecure memory systems without encryption.
 The following sections outline our experimental setup for analyzing the DBI
@@ -80,15 +83,15 @@ enabled power model described.
 
 Figure \ref{fig:exp} illustrates the general experimental setup we used to
 implement the DBI model described earlier. First, we need a set of
-representative benchmarks to run through to generate realistic memory traces
-that can be used to analyze the effect of memory encryption on power
-consumption. We chose MiBench \cite{mibench} for our benchmark suite. MiBench
-consists of applications representative of embedded and mobile workloads and
-provides easy to use build binary executables which integrates well with the
-\TT{PIN} architectural simulator we used. We chose not to use the \TT{SPEC2006}
-benchmark as the applications targeted workloads handled by general purpose
-processors. We used 28 applications in the MiBench suite (the following 14
-applications on big and small data-sets):
+representative benchmarks to generate realistic memory traces that can be used
+to analyze the effect of memory encryption on power consumption. We chose
+MiBench \cite{mibench} for our benchmark suite. MiBench consists of
+applications representative of embedded and mobile workloads. MiBench
+applications can be easily compiled to binary executables which integrate well
+with the \TT{PIN} architectural simulator we used. We chose not to use the
+\TT{SPEC2006} benchmark as the applications targeted workloads handled
+traditionally by general purpose processors. We used 28 applications in the
+MiBench suite (the following 14 applications on big and small data-sets):
 
 \begin{multicols}{2}
   \centering
@@ -110,24 +113,24 @@ applications on big and small data-sets):
   \end{enumerate}
 \end{multicols}
 
-The chosen set of MiBench applications spans all six classes provided by the
-benchmark: \TT{automotive}, \TT{consumer}, \TT{network}, \TT{office},
-\TT{security}, and \TT{telecomm}.
+The chosen set of MiBench applications spans all six application classes
+provided by the benchmark: \TT{automotive}, \TT{consumer}, \TT{network},
+\TT{office}, \TT{security}, and \TT{telecomm}.
 
 \subsubsection{Architectural Simulator}
 In order to analyze the impact of memory encryption on DBI-enabled DDR4 memory
-systems, we need to generate memory traces from the MiBench applications.
-Traditional simulator such as \TT{Gem5} \cite{gem5} and \TT{ESESC} \cite{esesc}
-did not meet our constraints. Gem5 and ESESC for the purposes of this study
-required significant overhead in terms of establishing an environment and
-integrating the simulators with MiBench applications to generate usable memory
-traces. Instead we chose use \TT{Pin} \cite{pin} - a dynamic binary
-instrumentation tool developed by Intel as a lean, easy to use computer
-architectural simulator. Since Pin performs run-time program instrumentation
-analysis on compiled binary files, integrating Pin with MiBench required little
-effort. Once we generated the specific \TT{Pintool} to generate memory traces,
-we could simply run the Pin simulator providing the Pintool and compiled
-Mibench application binaries as inputs.
+systems, we need to generate memory traces from the MiBench applications using
+a computer architectural simulator. Traditional simulators such as \TT{Gem5}
+\cite{gem5} and \TT{ESESC} \cite{esesc} did not meet our constraints. Gem5 and
+ESESC for the purposes of this study required significant overhead in terms of
+establishing an environment and integrating the simulators with MiBench
+applications to generate usable memory traces. Instead we chose to use \TT{Pin}
+\cite{pin} - a dynamic binary instrumentation tool developed by Intel as a
+lean, easy to use computer architectural simulator. Since Pin performs run-time
+program instrumentation analysis on compiled binary files, integrating Pin with
+MiBench required little effort. Once we generated the specific \TT{Pintool} to
+generate memory traces, we could simply run the Pin simulator providing the
+Pintool and compiled Mibench application binaries as inputs.
 
 Leveraging the IA-32 instruction set architecture framework provided by Pin, we
 created a \TT{Pintool}, to output the memory trace of arbitrary compiled
@@ -136,11 +139,11 @@ to create a single Pintool that provided a trace of all first-level cache
 misses. On every miss, the Pintool would output whether the operation was a
 \TT{load} or \TT{store} operation, the address and the value being read or
 written to memory. Unlike Gem5 and ESESC, Pin does not provide a cycle-by-cycle
-timing trace for when specific architectural events occur. Though this may be
-efficient for system-wide power analysis, our model is not parametrized on time
-but only the specific bit values of data units being read and written. In our
-experience, Pin worked well for generating such a coarse, event based memory
-trace.
+timing trace for specified architectural events occur. Though this may be
+necessary for more accurate system-wide power analysis, our model is not
+parametrized on time but rather on specific bit values of data being read and
+written. In our experience, Pin worked well for generating such a coarse, event
+based memory trace.
 
 For the purposes of our study we only simulated the data-cache with : 32KB
 total size, 8-way associativity, and 128B cache line size. The Pintool we
@@ -150,16 +153,16 @@ default configuration and seemed reasonable for our study.
 
 \subsubsection{Memory Trace Analysis}
 Once the memory trace of data-cache misses was generated, the traces needed to
-analyzed to model the power consumption. To the best of our knowledge Pin
-itself does not offer off-chip DDR memory power consumption tools so we chose
-to study other simulators that could easily integrate with the Pin memory
-traces. We focused on using \TT{DRAMSim} \cite{dram-sim} however ran into many
-integration issues. Though DRAMSim takes as input a memory trace, it produced
-power traces that suggested that for each operation the power consumed was
-\TT{nan}. In addition, the memory trace that DRAMSim used needed timing
+be analyzed under our model of ODT power consumption. To the best of our
+knowledge Pin itself does not offer off-chip DDR memory power consumption tools
+so we chose to study other simulators that could easily integrate with the Pin
+memory traces. We focused on using \TT{DRAMSim} \cite{dram-sim} however ran
+into many integration issues. Though DRAMSim takes as input a memory trace, it
+produced power traces that suggested that for each operation the power consumed
+was \TT{nan}. In addition, the memory trace that DRAMSim used needed timing
 information which we could not accurately produce using Pin. Looking at the
 source code, we could not figure out an easy way to output the power consumed
-by each operation and decided instead to write our own \TT{Python} based
+for each operation and decided instead to write our own \TT{Python} based
 analysis script.
 
 Our Python script reads the memory trace generated by Pin and tracks the
@@ -175,13 +178,13 @@ number of $0$'s in any given data byte is 4.
 value is greater than half the word length (32-bits in our system), flip all
 the bits and set the DBI-AC flag. Using this method, the maximum number of bit
 flips for a given word is 16. For store operations, the previous state is
-determined by tracking all written values in memory previously. If the store
+determined by tracking all values previously written to memory. If the store
 operation is the first to write to the specific memory location then we assume
-the previous state in memory was a string of all $0$'s. For load operations, we
-keep track of the previous load operation and compare the new read value to the
-previous load operation's read value. This assumes that there is a single read
-bus from the DDR4 to the processor on which we can characterize the DBI-AC
-factor.
+the previous state in memory initialized to a series of $0$'s. For load
+operations, we keep track of the previous load operation and compare the new
+read value to the previous load operation's read value. This assumes that there
+is a single read bus from the DDR4 to the processor on which we can
+characterize the DBI-AC factor.
 
 At the end of the memory trace simulation, the Python script calculates the
 DBI-DC and DBI-AC ratios as follows:
@@ -190,5 +193,5 @@ $$DBI-DC Ratio = \frac{\TT{Number of 0's}}{\TT{Total number of bits}}$$
 $$DBI-AC Ratio = \frac{\TT{Number of Bit Flips}}{\TT{Total number possible of bits}}$$
 
 Finally, we wrote \TT{bash} scripts to fully integrate the simulation flow from
-the Pin data-cache simulation to the python script and generating graphs for
+the Pin data-cache simulation to the Python script and generating graphs for
 the produced DBI-DC and DBI-AC ratios.
