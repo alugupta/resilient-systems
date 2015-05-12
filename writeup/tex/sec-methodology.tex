@@ -88,11 +88,10 @@ to analyze the effect of memory encryption on power consumption. We chose
 MiBench \cite{mibench} for our benchmark suite. MiBench consists of
 applications representative of embedded and mobile workloads. MiBench
 applications can be easily compiled to binary executables which integrate well
-with the \TT{PIN} architectural simulator we used. We chose not to use the
-\TT{SPEC2006} benchmark as the applications targeted workloads handled
+with the \TT{PIN} computer architecture analysis tool we used. We chose not to
+use the \TT{SPEC2006} benchmark as the applications targeted workloads handled
 traditionally by general purpose processors. We used 28 applications in the
 MiBench suite (the following 14 applications on big and small data-sets):
-
 \begin{multicols}{2}
   \centering
   \begin{enumerate}
@@ -120,13 +119,13 @@ provided by the benchmark: \TT{automotive}, \TT{consumer}, \TT{network},
 \subsubsection{Architectural Simulator}
 In order to analyze the impact of memory encryption on DBI-enabled DDR4 memory
 systems, we need to generate memory traces from the MiBench applications using
-a computer architectural simulator. Traditional simulators such as \TT{Gem5}
-\cite{gem5} and \TT{ESESC} \cite{esesc} did not meet our constraints. Gem5 and
-ESESC for the purposes of this study required significant overhead in terms of
+a computer architecture analysis tool. Traditional simulators such as \TT{Gem5}
+\cite{gem5} and \TT{SESC} \cite{esesc} did not meet our constraints. Gem5 and
+SESC for the purposes of this study required significant overhead in terms of
 establishing an environment and integrating the simulators with MiBench
 applications to generate usable memory traces. Instead we chose to use \TT{Pin}
 \cite{pin} - a dynamic binary instrumentation tool developed by Intel as a
-lean, easy to use computer architectural simulator. Since Pin performs run-time
+lean, easy to use computer architecture analysis tool. Since Pin performs run-time
 program instrumentation analysis on compiled binary files, integrating Pin with
 MiBench required little effort. Once we generated the specific \TT{Pintool} to
 generate memory traces, we could simply run the Pin simulator providing the
@@ -138,7 +137,7 @@ binaries. That is, we used the \TT{dcache} and \TT{safecopy} examples provided
 to create a single Pintool that provided a trace of all first-level cache
 misses. On every miss, the Pintool would output whether the operation was a
 \TT{load} or \TT{store} operation, the address and the value being read or
-written to memory. Unlike Gem5 and ESESC, Pin does not provide a cycle-by-cycle
+written to memory. Unlike Gem5 and SESC, Pin does not provide a cycle-by-cycle
 timing trace for specified architectural events occur. Though this may be
 necessary for more accurate system-wide power analysis, our model is not
 parametrized on time but rather on specific bit values of data being read and
